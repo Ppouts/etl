@@ -1,0 +1,1157 @@
+[0m13:56:10.516394 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022ECB93BE00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022ECB90EFF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022ECB90F3E0>]}
+
+
+============================== 13:56:10.535603 | 405daa87-e632-47c5-be3e-26dc5d19b495 ==============================
+[0m13:56:10.535603 [info ] [MainThread]: Running with dbt=1.11.12
+[0m13:56:10.546652 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': '.', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt run --profiles-dir .', 'indirect_selection': 'eager', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\pierr\\OneDrive\\Bureau\\etl\\npc_benchmark\\logs'}
+[0m13:56:11.721360 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '405daa87-e632-47c5-be3e-26dc5d19b495', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022ECD34C200>]}
+[0m13:56:11.910284 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '405daa87-e632-47c5-be3e-26dc5d19b495', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022ECB454980>]}
+[0m13:56:11.923470 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m13:56:14.507963 [debug] [MainThread]: checksum: f368f5348cf42803b94ef7fb8257ecf3bf9a9a16dd9c8c51fe5172f2dbeb457f, vars: {}, profile: , target: , version: 1.11.12
+[0m13:56:14.512832 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m13:56:14.515828 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '405daa87-e632-47c5-be3e-26dc5d19b495', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022ECB2C9D90>]}
+[0m13:56:20.419371 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '405daa87-e632-47c5-be3e-26dc5d19b495', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022ECDA45160>]}
+[0m13:56:20.632804 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\pierr\OneDrive\Bureau\etl\npc_benchmark\target\manifest.json
+[0m13:56:20.644681 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\pierr\OneDrive\Bureau\etl\npc_benchmark\target\semantic_manifest.json
+[0m13:56:20.698284 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '405daa87-e632-47c5-be3e-26dc5d19b495', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022ECDBA8500>]}
+[0m13:56:20.700284 [info ] [MainThread]: Found 14 models, 3 data tests, 485 macros
+[0m13:56:20.701799 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '405daa87-e632-47c5-be3e-26dc5d19b495', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022ECD9924B0>]}
+[0m13:56:20.708403 [info ] [MainThread]: 
+[0m13:56:20.710710 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m13:56:20.712725 [info ] [MainThread]: 
+[0m13:56:20.715740 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m13:56:20.730706 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_benchmark'
+[0m13:56:24.994245 [debug] [ThreadPool]: Using duckdb connection "list_benchmark"
+[0m13:56:24.996609 [debug] [ThreadPool]: On list_benchmark: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "list_benchmark"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"benchmark"'
+    
+  
+  
+[0m13:56:24.997663 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:56:25.052403 [debug] [ThreadPool]: DuckDB adapter: duckdb error: IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+[0m13:56:25.054381 [debug] [ThreadPool]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "list_benchmark"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"benchmark"'
+    
+  
+  
+[0m13:56:25.056377 [debug] [ThreadPool]: DuckDB adapter: Rolling back transaction.
+[0m13:56:25.057890 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:56:25.083323 [debug] [ThreadPool]: DuckDB adapter: duckdb error: IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+[0m13:56:25.085351 [debug] [ThreadPool]: DuckDB adapter: Error running SQL: macro list_schemas
+[0m13:56:25.087351 [debug] [ThreadPool]: DuckDB adapter: Rolling back transaction.
+[0m13:56:25.089580 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m13:56:25.114716 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m13:56:25.116695 [debug] [MainThread]: Connection 'list_benchmark' was properly closed.
+[0m13:56:25.117692 [info ] [MainThread]: 
+[0m13:56:25.119694 [info ] [MainThread]: Finished running  in 0 hours 0 minutes and 4.40 seconds (4.40s).
+[0m13:56:25.122219 [error] [MainThread]: Encountered an error:
+IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+[0m13:56:25.573481 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 95, in exception_handler
+    yield
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\sql\connections.py", line 147, in add_query
+    cursor = connection.handle.cursor()
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 53, in open
+    connection.handle = cls._ENV.handle()
+                        ^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\local.py", line 75, in handle
+    self.conn = self.initialize_db(self.creds, self._plugins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\__init__.py", line 159, in initialize_db
+    conn = duckdb.connect(creds.path, read_only=False, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 95, in exception_handler
+    yield
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\base\impl.py", line 1357, in execute_macro
+    result = macro_function(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 427, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 20, in macro
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\clients\jinja.py", line 82, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 50, in macro
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\clients\jinja.py", line 82, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 33, in macro
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\clients\jinja.py", line 82, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 52, in macro
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\record.py", line 538, in record_replay_wrapper
+    return func_to_record(*call_args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\base\impl.py", line 508, in execute
+    return self.connections.execute(sql=sql, auto_begin=auto_begin, fetch=fetch, limit=limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 130, in execute
+    return super().execute(sql, auto_begin, fetch, limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\sql\connections.py", line 219, in execute
+    _, cursor = self.add_query(sql, auto_begin)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\sql\connections.py", line 131, in add_query
+    with self.exception_handler(sql):
+  File "C:\Users\pierr\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 102, in exception_handler
+    self.rollback_if_open()
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\base\connections.py", line 125, in rollback_if_open
+    if conn is not None and conn.handle and conn.transaction_open:
+                            ^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 53, in open
+    connection.handle = cls._ENV.handle()
+                        ^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\local.py", line 75, in handle
+    self.conn = self.initialize_db(self.creds, self._plugins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\__init__.py", line 159, in initialize_db
+    conn = duckdb.connect(creds.path, read_only=False, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 276, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 321, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 391, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 368, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 408, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\main.py", line 593, in run
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\task\runnable.py", line 626, in run
+    result = self.execute_with_hooks(selected_uids)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\task\runnable.py", line 559, in execute_with_hooks
+    before_run_status = self.before_run(adapter, selected_uids)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\task\run.py", line 1114, in before_run
+    self.create_schemas(adapter, required_schemas)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\task\runnable.py", line 734, in create_schemas
+    existing_schemas_lowered.update(ls_future.result())
+                                    ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\pierr\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\utils\executor.py", line 16, in connected
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\task\runnable.py", line 709, in list_schemas
+    for s in adapter.list_schemas(database_quoted)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\sql\impl.py", line 219, in list_schemas
+    results = self.execute_macro(LIST_SCHEMAS_MACRO_NAME, kwargs={"database": database})
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\base\impl.py", line 1356, in execute_macro
+    with self.connections.exception_handler(f"macro {macro_name}"):
+  File "C:\Users\pierr\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 102, in exception_handler
+    self.rollback_if_open()
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\base\connections.py", line 125, in rollback_if_open
+    if conn is not None and conn.handle and conn.transaction_open:
+                            ^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 53, in open
+    connection.handle = cls._ENV.handle()
+                        ^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\local.py", line 75, in handle
+    self.conn = self.initialize_db(self.creds, self._plugins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\__init__.py", line 159, in initialize_db
+    conn = duckdb.connect(creds.path, read_only=False, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+
+[0m13:56:25.583025 [debug] [MainThread]: Command `dbt run` failed at 13:56:25.583025 after 15.59 seconds
+[0m13:56:25.585026 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022ECC1F4620>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022ECD965610>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022ECD783D40>]}
+[0m13:56:25.587431 [debug] [MainThread]: Flushing usage events
+[0m13:56:26.952057 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:00:35.933489 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F2A2E8FA40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F2A27C9070>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F29F85D880>]}
+
+
+============================== 14:00:35.946613 | b96d463e-873d-4502-bd2e-d0f0132d110c ==============================
+[0m14:00:35.946613 [info ] [MainThread]: Running with dbt=1.11.12
+[0m14:00:35.949552 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': '.', 'use_colors': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run --profiles-dir .', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\pierr\\OneDrive\\Bureau\\etl\\npc_benchmark\\logs'}
+[0m14:00:36.853802 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'b96d463e-873d-4502-bd2e-d0f0132d110c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F2A024A960>]}
+[0m14:00:37.007280 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'b96d463e-873d-4502-bd2e-d0f0132d110c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F2A345B8F0>]}
+[0m14:00:37.019140 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m14:00:38.896664 [debug] [MainThread]: checksum: f368f5348cf42803b94ef7fb8257ecf3bf9a9a16dd9c8c51fe5172f2dbeb457f, vars: {}, profile: , target: , version: 1.11.12
+[0m14:00:39.386409 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:00:39.388941 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m14:00:39.391199 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:00:39.470024 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'b96d463e-873d-4502-bd2e-d0f0132d110c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F2A48D2840>]}
+[0m14:00:39.658967 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\pierr\OneDrive\Bureau\etl\npc_benchmark\target\manifest.json
+[0m14:00:39.670748 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\pierr\OneDrive\Bureau\etl\npc_benchmark\target\semantic_manifest.json
+[0m14:00:39.718712 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'b96d463e-873d-4502-bd2e-d0f0132d110c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F2A4E4E600>]}
+[0m14:00:39.721244 [info ] [MainThread]: Found 14 models, 3 data tests, 485 macros
+[0m14:00:39.724492 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'b96d463e-873d-4502-bd2e-d0f0132d110c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F2A4A02F60>]}
+[0m14:00:39.730540 [info ] [MainThread]: 
+[0m14:00:39.735569 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:00:39.738078 [info ] [MainThread]: 
+[0m14:00:39.741096 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m14:00:39.758065 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_benchmark'
+[0m14:00:40.270083 [debug] [ThreadPool]: Using duckdb connection "list_benchmark"
+[0m14:00:40.272086 [debug] [ThreadPool]: On list_benchmark: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "list_benchmark"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"benchmark"'
+    
+  
+  
+[0m14:00:40.274086 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:00:40.327618 [debug] [ThreadPool]: DuckDB adapter: duckdb error: IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+[0m14:00:40.330452 [debug] [ThreadPool]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "list_benchmark"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"benchmark"'
+    
+  
+  
+[0m14:00:40.332715 [debug] [ThreadPool]: DuckDB adapter: Rolling back transaction.
+[0m14:00:40.333735 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:00:40.362133 [debug] [ThreadPool]: DuckDB adapter: duckdb error: IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+[0m14:00:40.364241 [debug] [ThreadPool]: DuckDB adapter: Error running SQL: macro list_schemas
+[0m14:00:40.365371 [debug] [ThreadPool]: DuckDB adapter: Rolling back transaction.
+[0m14:00:40.366823 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:00:40.394966 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:00:40.397161 [debug] [MainThread]: Connection 'list_benchmark' was properly closed.
+[0m14:00:40.398483 [info ] [MainThread]: 
+[0m14:00:40.400610 [info ] [MainThread]: Finished running  in 0 hours 0 minutes and 0.66 seconds (0.66s).
+[0m14:00:40.403320 [error] [MainThread]: Encountered an error:
+IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+[0m14:00:40.454174 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 95, in exception_handler
+    yield
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\sql\connections.py", line 147, in add_query
+    cursor = connection.handle.cursor()
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 53, in open
+    connection.handle = cls._ENV.handle()
+                        ^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\local.py", line 75, in handle
+    self.conn = self.initialize_db(self.creds, self._plugins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\__init__.py", line 159, in initialize_db
+    conn = duckdb.connect(creds.path, read_only=False, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 95, in exception_handler
+    yield
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\base\impl.py", line 1357, in execute_macro
+    result = macro_function(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 427, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 20, in macro
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\clients\jinja.py", line 82, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 50, in macro
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\clients\jinja.py", line 82, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 33, in macro
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\clients\jinja.py", line 82, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 52, in macro
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\record.py", line 538, in record_replay_wrapper
+    return func_to_record(*call_args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\base\impl.py", line 508, in execute
+    return self.connections.execute(sql=sql, auto_begin=auto_begin, fetch=fetch, limit=limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 130, in execute
+    return super().execute(sql, auto_begin, fetch, limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\sql\connections.py", line 219, in execute
+    _, cursor = self.add_query(sql, auto_begin)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\sql\connections.py", line 131, in add_query
+    with self.exception_handler(sql):
+  File "C:\Users\pierr\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 102, in exception_handler
+    self.rollback_if_open()
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\base\connections.py", line 125, in rollback_if_open
+    if conn is not None and conn.handle and conn.transaction_open:
+                            ^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 53, in open
+    connection.handle = cls._ENV.handle()
+                        ^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\local.py", line 75, in handle
+    self.conn = self.initialize_db(self.creds, self._plugins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\__init__.py", line 159, in initialize_db
+    conn = duckdb.connect(creds.path, read_only=False, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 276, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 321, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 391, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 368, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 408, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\main.py", line 593, in run
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\task\runnable.py", line 626, in run
+    result = self.execute_with_hooks(selected_uids)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\task\runnable.py", line 559, in execute_with_hooks
+    before_run_status = self.before_run(adapter, selected_uids)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\task\run.py", line 1114, in before_run
+    self.create_schemas(adapter, required_schemas)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\task\runnable.py", line 734, in create_schemas
+    existing_schemas_lowered.update(ls_future.result())
+                                    ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\pierr\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\utils\executor.py", line 16, in connected
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\task\runnable.py", line 709, in list_schemas
+    for s in adapter.list_schemas(database_quoted)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\sql\impl.py", line 219, in list_schemas
+    results = self.execute_macro(LIST_SCHEMAS_MACRO_NAME, kwargs={"database": database})
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\base\impl.py", line 1356, in execute_macro
+    with self.connections.exception_handler(f"macro {macro_name}"):
+  File "C:\Users\pierr\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 102, in exception_handler
+    self.rollback_if_open()
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\base\connections.py", line 125, in rollback_if_open
+    if conn is not None and conn.handle and conn.transaction_open:
+                            ^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 53, in open
+    connection.handle = cls._ENV.handle()
+                        ^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\local.py", line 75, in handle
+    self.conn = self.initialize_db(self.creds, self._plugins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\__init__.py", line 159, in initialize_db
+    conn = duckdb.connect(creds.path, read_only=False, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+
+[0m14:00:40.460585 [debug] [MainThread]: Command `dbt run` failed at 14:00:40.460585 after 4.95 seconds
+[0m14:00:40.462736 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F2A04D0410>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F2A4A02A50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001F2A4E9A720>]}
+[0m14:00:40.464726 [debug] [MainThread]: Flushing usage events
+[0m14:00:41.730977 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:20:58.554646 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AD78CBD1F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AD794CEF00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AD7910F740>]}
+
+
+============================== 14:20:58.570050 | b79f2c18-da34-416e-93e7-eee82efaf4e9 ==============================
+[0m14:20:58.570050 [info ] [MainThread]: Running with dbt=1.11.12
+[0m14:20:58.572894 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'False', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': '.', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt run --profiles-dir .', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\pierr\\OneDrive\\Bureau\\etl\\npc_benchmark\\logs'}
+[0m14:20:59.648788 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'b79f2c18-da34-416e-93e7-eee82efaf4e9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AD7A67A4B0>]}
+[0m14:20:59.829192 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'b79f2c18-da34-416e-93e7-eee82efaf4e9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AD7954CD10>]}
+[0m14:20:59.839480 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m14:21:01.787944 [debug] [MainThread]: checksum: f368f5348cf42803b94ef7fb8257ecf3bf9a9a16dd9c8c51fe5172f2dbeb457f, vars: {}, profile: , target: , version: 1.11.12
+[0m14:21:02.286621 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m14:21:02.289763 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m14:21:02.291995 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m14:21:02.373366 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'b79f2c18-da34-416e-93e7-eee82efaf4e9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AD7A82DF70>]}
+[0m14:21:02.610905 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\pierr\OneDrive\Bureau\etl\npc_benchmark\target\manifest.json
+[0m14:21:02.626605 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\pierr\OneDrive\Bureau\etl\npc_benchmark\target\semantic_manifest.json
+[0m14:21:02.700927 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'b79f2c18-da34-416e-93e7-eee82efaf4e9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AD7AC27F80>]}
+[0m14:21:02.703926 [info ] [MainThread]: Found 14 models, 3 data tests, 485 macros
+[0m14:21:02.706014 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'b79f2c18-da34-416e-93e7-eee82efaf4e9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AD7AC524E0>]}
+[0m14:21:02.712122 [info ] [MainThread]: 
+[0m14:21:02.713324 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:21:02.716337 [info ] [MainThread]: 
+[0m14:21:02.719875 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m14:21:02.738313 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_benchmark'
+[0m14:21:03.449144 [debug] [ThreadPool]: Using duckdb connection "list_benchmark"
+[0m14:21:03.450715 [debug] [ThreadPool]: On list_benchmark: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "list_benchmark"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"benchmark"'
+    
+  
+  
+[0m14:21:03.452751 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:21:03.504139 [debug] [ThreadPool]: DuckDB adapter: duckdb error: IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+[0m14:21:03.505591 [debug] [ThreadPool]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "list_benchmark"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"benchmark"'
+    
+  
+  
+[0m14:21:03.506568 [debug] [ThreadPool]: DuckDB adapter: Rolling back transaction.
+[0m14:21:03.509181 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:21:03.535124 [debug] [ThreadPool]: DuckDB adapter: duckdb error: IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+[0m14:21:03.538151 [debug] [ThreadPool]: DuckDB adapter: Error running SQL: macro list_schemas
+[0m14:21:03.540178 [debug] [ThreadPool]: DuckDB adapter: Rolling back transaction.
+[0m14:21:03.542302 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:21:03.576262 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:21:03.578808 [debug] [MainThread]: Connection 'list_benchmark' was properly closed.
+[0m14:21:03.582303 [info ] [MainThread]: 
+[0m14:21:03.583301 [info ] [MainThread]: Finished running  in 0 hours 0 minutes and 0.86 seconds (0.86s).
+[0m14:21:03.585956 [error] [MainThread]: Encountered an error:
+IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+[0m14:21:03.638107 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 95, in exception_handler
+    yield
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\sql\connections.py", line 147, in add_query
+    cursor = connection.handle.cursor()
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 53, in open
+    connection.handle = cls._ENV.handle()
+                        ^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\local.py", line 75, in handle
+    self.conn = self.initialize_db(self.creds, self._plugins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\__init__.py", line 159, in initialize_db
+    conn = duckdb.connect(creds.path, read_only=False, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 95, in exception_handler
+    yield
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\base\impl.py", line 1357, in execute_macro
+    result = macro_function(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 427, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 20, in macro
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\clients\jinja.py", line 82, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 50, in macro
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\clients\jinja.py", line 82, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 33, in macro
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\clients\jinja.py", line 82, in __call__
+    return self.call_macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\clients\jinja.py", line 395, in call_macro
+    return macro(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 770, in __call__
+    return self._invoke(arguments, autoescape)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 784, in _invoke
+    rv = self._func(*arguments)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "<template>", line 52, in macro
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\sandbox.py", line 401, in call
+    return __context.call(__obj, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\jinja2\runtime.py", line 303, in call
+    return __obj(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\record.py", line 538, in record_replay_wrapper
+    return func_to_record(*call_args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\base\impl.py", line 508, in execute
+    return self.connections.execute(sql=sql, auto_begin=auto_begin, fetch=fetch, limit=limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 130, in execute
+    return super().execute(sql, auto_begin, fetch, limit)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\sql\connections.py", line 219, in execute
+    _, cursor = self.add_query(sql, auto_begin)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\sql\connections.py", line 131, in add_query
+    with self.exception_handler(sql):
+  File "C:\Users\pierr\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 102, in exception_handler
+    self.rollback_if_open()
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\base\connections.py", line 125, in rollback_if_open
+    if conn is not None and conn.handle and conn.transaction_open:
+                            ^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 53, in open
+    connection.handle = cls._ENV.handle()
+                        ^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\local.py", line 75, in handle
+    self.conn = self.initialize_db(self.creds, self._plugins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\__init__.py", line 159, in initialize_db
+    conn = duckdb.connect(creds.path, read_only=False, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 276, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 321, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 391, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 368, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\requires.py", line 408, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\cli\main.py", line 593, in run
+    results = task.run()
+              ^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\task\runnable.py", line 626, in run
+    result = self.execute_with_hooks(selected_uids)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\task\runnable.py", line 559, in execute_with_hooks
+    before_run_status = self.before_run(adapter, selected_uids)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\task\run.py", line 1114, in before_run
+    self.create_schemas(adapter, required_schemas)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\task\runnable.py", line 734, in create_schemas
+    existing_schemas_lowered.update(ls_future.result())
+                                    ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\pierr\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt_common\utils\executor.py", line 16, in connected
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\task\runnable.py", line 709, in list_schemas
+    for s in adapter.list_schemas(database_quoted)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\sql\impl.py", line 219, in list_schemas
+    results = self.execute_macro(LIST_SCHEMAS_MACRO_NAME, kwargs={"database": database})
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\base\impl.py", line 1356, in execute_macro
+    with self.connections.exception_handler(f"macro {macro_name}"):
+  File "C:\Users\pierr\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 102, in exception_handler
+    self.rollback_if_open()
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\base\connections.py", line 125, in rollback_if_open
+    if conn is not None and conn.handle and conn.transaction_open:
+                            ^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 96, in handle
+    self._handle.resolve(self)
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\contracts\connection.py", line 120, in resolve
+    return self.opener(connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\connections.py", line 53, in open
+    connection.handle = cls._ENV.handle()
+                        ^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\local.py", line 75, in handle
+    self.conn = self.initialize_db(self.creds, self._plugins)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pierr\OneDrive\Bureau\etl\.venv\Lib\site-packages\dbt\adapters\duckdb\environments\__init__.py", line 159, in initialize_db
+    conn = duckdb.connect(creds.path, read_only=False, config=config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_duckdb.IOException: IO Error: Cannot open file "C:\Users\pierr\OneDrive\Bureau\data\gold\benchmark.duckdb": Le chemin d’accès spécifié est introuvable.
+
+
+[0m14:21:03.644934 [debug] [MainThread]: Command `dbt run` failed at 14:21:03.644934 after 5.73 seconds
+[0m14:21:03.646325 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AD78E08B00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AD72BD0860>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001AD7AF31CA0>]}
+[0m14:21:03.647964 [debug] [MainThread]: Flushing usage events
+[0m14:21:04.915284 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:21:22.177485 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A0932B1970>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A095C14E30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A095C16930>]}
+
+
+============================== 14:21:22.189824 | 262996dd-5840-453c-956b-fe5588d9f15d ==============================
+[0m14:21:22.189824 [info ] [MainThread]: Running with dbt=1.11.12
+[0m14:21:22.191131 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'profiles_dir': '.', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt run --profiles-dir .', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\pierr\\OneDrive\\Bureau\\etl\\npc_benchmark\\logs'}
+[0m14:21:23.013407 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '262996dd-5840-453c-956b-fe5588d9f15d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A09339AC60>]}
+[0m14:21:23.158513 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '262996dd-5840-453c-956b-fe5588d9f15d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A0967805C0>]}
+[0m14:21:23.168590 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m14:21:25.171656 [debug] [MainThread]: checksum: f368f5348cf42803b94ef7fb8257ecf3bf9a9a16dd9c8c51fe5172f2dbeb457f, vars: {}, profile: , target: , version: 1.11.12
+[0m14:21:25.443349 [info ] [MainThread]: Unable to do partial parsing because profile has changed
+[0m14:21:25.446879 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '262996dd-5840-453c-956b-fe5588d9f15d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A097FD0650>]}
+[0m14:21:29.266389 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '262996dd-5840-453c-956b-fe5588d9f15d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A097E509E0>]}
+[0m14:21:29.445894 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\pierr\OneDrive\Bureau\etl\npc_benchmark\target\manifest.json
+[0m14:21:29.455445 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\pierr\OneDrive\Bureau\etl\npc_benchmark\target\semantic_manifest.json
+[0m14:21:29.506156 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '262996dd-5840-453c-956b-fe5588d9f15d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A09838F230>]}
+[0m14:21:29.507564 [info ] [MainThread]: Found 14 models, 3 data tests, 485 macros
+[0m14:21:29.510821 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '262996dd-5840-453c-956b-fe5588d9f15d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A098183AD0>]}
+[0m14:21:29.515228 [info ] [MainThread]: 
+[0m14:21:29.517689 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:21:29.519718 [info ] [MainThread]: 
+[0m14:21:29.522737 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m14:21:29.537511 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_benchmark'
+[0m14:21:30.072639 [debug] [ThreadPool]: Using duckdb connection "list_benchmark"
+[0m14:21:30.074380 [debug] [ThreadPool]: On list_benchmark: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "list_benchmark"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"benchmark"'
+    
+  
+  
+[0m14:21:30.076670 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:21:30.146574 [debug] [ThreadPool]: SQL status: OK in 0.071 seconds
+[0m14:21:30.153773 [debug] [ThreadPool]: On list_benchmark: Close
+[0m14:21:30.156771 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_benchmark, now create_benchmark_main)
+[0m14:21:30.159773 [debug] [ThreadPool]: Creating schema "database: "benchmark"
+schema: "main"
+"
+[0m14:21:30.178647 [debug] [ThreadPool]: Using duckdb connection "create_benchmark_main"
+[0m14:21:30.181124 [debug] [ThreadPool]: On create_benchmark_main: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "create_benchmark_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='benchmark'
+        and type='sqlite'
+    
+  
+[0m14:21:30.182632 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m14:21:30.186159 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m14:21:30.190594 [debug] [ThreadPool]: Using duckdb connection "create_benchmark_main"
+[0m14:21:30.192593 [debug] [ThreadPool]: On create_benchmark_main: BEGIN
+[0m14:21:30.194619 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m14:21:30.196639 [debug] [ThreadPool]: Using duckdb connection "create_benchmark_main"
+[0m14:21:30.197638 [debug] [ThreadPool]: On create_benchmark_main: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "create_benchmark_main"} */
+
+    
+    
+        create schema if not exists "benchmark"."main"
+    
+[0m14:21:30.201650 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m14:21:30.205208 [debug] [ThreadPool]: On create_benchmark_main: COMMIT
+[0m14:21:30.207212 [debug] [ThreadPool]: Using duckdb connection "create_benchmark_main"
+[0m14:21:30.209365 [debug] [ThreadPool]: On create_benchmark_main: COMMIT
+[0m14:21:30.212008 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m14:21:30.214521 [debug] [ThreadPool]: On create_benchmark_main: Close
+[0m14:21:30.219755 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_benchmark_main'
+[0m14:21:30.232163 [debug] [ThreadPool]: Using duckdb connection "list_benchmark_main"
+[0m14:21:30.234577 [debug] [ThreadPool]: On list_benchmark_main: BEGIN
+[0m14:21:30.236112 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:21:30.238535 [debug] [ThreadPool]: SQL status: OK in 0.002 seconds
+[0m14:21:30.239535 [debug] [ThreadPool]: Using duckdb connection "list_benchmark_main"
+[0m14:21:30.241535 [debug] [ThreadPool]: On list_benchmark_main: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "list_benchmark_main"} */
+select
+      'benchmark' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'benchmark'
+  
+[0m14:21:30.256675 [debug] [ThreadPool]: SQL status: OK in 0.014 seconds
+[0m14:21:30.261459 [debug] [ThreadPool]: On list_benchmark_main: ROLLBACK
+[0m14:21:30.266933 [debug] [ThreadPool]: Failed to rollback 'list_benchmark_main'
+[0m14:21:30.268458 [debug] [ThreadPool]: On list_benchmark_main: Close
+[0m14:21:30.271153 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '262996dd-5840-453c-956b-fe5588d9f15d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A09348A840>]}
+[0m14:21:30.273683 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:21:30.276071 [debug] [MainThread]: On master: BEGIN
+[0m14:21:30.279034 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:21:30.282650 [debug] [MainThread]: SQL status: OK in 0.003 seconds
+[0m14:21:30.283651 [debug] [MainThread]: On master: COMMIT
+[0m14:21:30.285650 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:21:30.287651 [debug] [MainThread]: On master: COMMIT
+[0m14:21:30.289716 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m14:21:30.291719 [debug] [MainThread]: On master: Close
+[0m14:21:30.312788 [debug] [Thread-1 (]: Began running node model.npc_benchmark.stg_runs
+[0m14:21:30.313943 [debug] [Thread-2 (]: Began running node model.npc_benchmark.stg_steps
+[0m14:21:30.315942 [info ] [Thread-1 (]: 1 of 14 START sql view model main.stg_runs ..................................... [RUN]
+[0m14:21:30.319473 [info ] [Thread-2 (]: 2 of 14 START sql view model main.stg_steps .................................... [RUN]
+[0m14:21:30.322496 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.npc_benchmark.stg_runs'
+[0m14:21:30.325518 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.npc_benchmark.stg_steps'
+[0m14:21:30.327754 [debug] [Thread-1 (]: Began compiling node model.npc_benchmark.stg_runs
+[0m14:21:30.328911 [debug] [Thread-2 (]: Began compiling node model.npc_benchmark.stg_steps
+[0m14:21:30.351774 [debug] [Thread-1 (]: Writing injected SQL for node "model.npc_benchmark.stg_runs"
+[0m14:21:30.359479 [debug] [Thread-2 (]: Writing injected SQL for node "model.npc_benchmark.stg_steps"
+[0m14:21:30.368530 [debug] [Thread-1 (]: Began executing node model.npc_benchmark.stg_runs
+[0m14:21:30.369927 [debug] [Thread-2 (]: Began executing node model.npc_benchmark.stg_steps
+[0m14:21:30.589179 [debug] [Thread-1 (]: Writing runtime sql for node "model.npc_benchmark.stg_runs"
+[0m14:21:30.595986 [debug] [Thread-2 (]: Writing runtime sql for node "model.npc_benchmark.stg_steps"
+[0m14:21:30.603745 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.stg_runs"
+[0m14:21:30.606055 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.stg_steps"
+[0m14:21:30.607055 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: BEGIN
+[0m14:21:30.608608 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: BEGIN
+[0m14:21:30.610627 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m14:21:30.613108 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m14:21:30.616123 [debug] [Thread-1 (]: SQL status: OK in 0.005 seconds
+[0m14:21:30.617103 [debug] [Thread-2 (]: SQL status: OK in 0.005 seconds
+[0m14:21:30.619149 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.stg_runs"
+[0m14:21:30.620403 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.stg_steps"
+[0m14:21:30.623145 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_runs"} */
+
+  
+  create view "benchmark"."main"."stg_runs__dbt_tmp" as (
+    select *
+from read_parquet('../../data/silver/runs.parquet')
+  );
+
+[0m14:21:30.625455 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_steps"} */
+
+  
+  create view "benchmark"."main"."stg_steps__dbt_tmp" as (
+    select *
+from read_parquet('../../data/silver/steps.parquet')
+  );
+
+[0m14:21:30.638547 [debug] [Thread-2 (]: DuckDB adapter: duckdb error: IO Error: No files found that match the pattern "../../data/silver/steps.parquet"
+
+LINE 6: from read_parquet('../../data/silver/steps.parquet')
+             ^
+[0m14:21:30.639603 [debug] [Thread-1 (]: DuckDB adapter: duckdb error: IO Error: No files found that match the pattern "../../data/silver/runs.parquet"
+
+LINE 6: from read_parquet('../../data/silver/runs.parquet')
+             ^
+[0m14:21:30.641720 [debug] [Thread-2 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_steps"} */
+
+  
+  create view "benchmark"."main"."stg_steps__dbt_tmp" as (
+    select *
+from read_parquet('../../data/silver/steps.parquet')
+  );
+
+[0m14:21:30.643840 [debug] [Thread-1 (]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_runs"} */
+
+  
+  create view "benchmark"."main"."stg_runs__dbt_tmp" as (
+    select *
+from read_parquet('../../data/silver/runs.parquet')
+  );
+
+[0m14:21:30.645269 [debug] [Thread-2 (]: DuckDB adapter: Rolling back transaction.
+[0m14:21:30.647554 [debug] [Thread-1 (]: DuckDB adapter: Rolling back transaction.
+[0m14:21:30.650584 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: ROLLBACK
+[0m14:21:30.652109 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: ROLLBACK
+[0m14:21:30.661194 [debug] [Thread-2 (]: Failed to rollback 'model.npc_benchmark.stg_steps'
+[0m14:21:30.662868 [debug] [Thread-1 (]: Failed to rollback 'model.npc_benchmark.stg_runs'
+[0m14:21:30.664286 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: Close
+[0m14:21:30.666421 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: Close
+[0m14:21:30.871279 [debug] [Thread-1 (]: Runtime Error in model stg_runs (models\staging\stg_runs.sql)
+  IO Error: No files found that match the pattern "../../data/silver/runs.parquet"
+  
+  LINE 6: from read_parquet('../../data/silver/runs.parquet')
+               ^
+[0m14:21:30.873914 [debug] [Thread-2 (]: Runtime Error in model stg_steps (models\staging\stg_steps.sql)
+  IO Error: No files found that match the pattern "../../data/silver/steps.parquet"
+  
+  LINE 6: from read_parquet('../../data/silver/steps.parquet')
+               ^
+[0m14:21:30.881539 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '262996dd-5840-453c-956b-fe5588d9f15d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A095966390>]}
+[0m14:21:30.882516 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '262996dd-5840-453c-956b-fe5588d9f15d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A098790CE0>]}
+[0m14:21:30.883515 [error] [Thread-1 (]: 1 of 14 ERROR creating sql view model main.stg_runs ............................ [[31mERROR[0m in 0.55s]
+[0m14:21:30.886037 [error] [Thread-2 (]: 2 of 14 ERROR creating sql view model main.stg_steps ........................... [[31mERROR[0m in 0.55s]
+[0m14:21:30.888599 [debug] [Thread-1 (]: Finished running node model.npc_benchmark.stg_runs
+[0m14:21:30.890601 [debug] [Thread-2 (]: Finished running node model.npc_benchmark.stg_steps
+[0m14:21:30.893855 [debug] [Thread-7 (]: Marking all children of 'model.npc_benchmark.stg_runs' to be skipped because of status 'error'.  Reason: Runtime Error in model stg_runs (models\staging\stg_runs.sql)
+  IO Error: No files found that match the pattern "../../data/silver/runs.parquet"
+  
+  LINE 6: from read_parquet('../../data/silver/runs.parquet')
+               ^.
+[0m14:21:30.898387 [debug] [Thread-7 (]: Marking all children of 'model.npc_benchmark.stg_steps' to be skipped because of status 'error'.  Reason: Runtime Error in model stg_steps (models\staging\stg_steps.sql)
+  IO Error: No files found that match the pattern "../../data/silver/steps.parquet"
+  
+  LINE 6: from read_parquet('../../data/silver/steps.parquet')
+               ^.
+[0m14:21:30.899864 [debug] [Thread-4 (]: Began running node model.npc_benchmark.kpi_points_lost_to_penalty
+[0m14:21:30.901211 [debug] [Thread-3 (]: Began running node model.npc_benchmark.kpi_success_rate
+[0m14:21:30.903447 [debug] [Thread-2 (]: Began running node model.npc_benchmark.kpi_coin_priority_switches
+[0m14:21:30.904928 [debug] [Thread-1 (]: Began running node model.npc_benchmark.kpi_enemy_contacts
+[0m14:21:30.905941 [info ] [Thread-4 (]: 3 of 14 SKIP relation main.kpi_points_lost_to_penalty .......................... [[33mSKIP[0m]
+[0m14:21:30.908907 [info ] [Thread-3 (]: 4 of 14 SKIP relation main.kpi_success_rate .................................... [[33mSKIP[0m]
+[0m14:21:30.911948 [info ] [Thread-2 (]: 5 of 14 SKIP relation main.kpi_coin_priority_switches .......................... [[33mSKIP[0m]
+[0m14:21:30.914638 [info ] [Thread-1 (]: 6 of 14 SKIP relation main.kpi_enemy_contacts .................................. [[33mSKIP[0m]
+[0m14:21:30.916665 [debug] [Thread-4 (]: Finished running node model.npc_benchmark.kpi_points_lost_to_penalty
+[0m14:21:30.918175 [debug] [Thread-3 (]: Finished running node model.npc_benchmark.kpi_success_rate
+[0m14:21:30.920705 [debug] [Thread-2 (]: Finished running node model.npc_benchmark.kpi_coin_priority_switches
+[0m14:21:30.921729 [debug] [Thread-1 (]: Finished running node model.npc_benchmark.kpi_enemy_contacts
+[0m14:21:30.925238 [debug] [Thread-4 (]: Began running node model.npc_benchmark.kpi_invalid_action_rate
+[0m14:21:30.927238 [debug] [Thread-3 (]: Began running node model.npc_benchmark.kpi_latency_ms_per_decision
+[0m14:21:30.929841 [debug] [Thread-2 (]: Began running node model.npc_benchmark.kpi_rolling_avg_distance
+[0m14:21:30.931393 [debug] [Thread-1 (]: Began running node model.npc_benchmark.kpi_steps_per_coin
+[0m14:21:30.933547 [info ] [Thread-4 (]: 7 of 14 SKIP relation main.kpi_invalid_action_rate ............................. [[33mSKIP[0m]
+[0m14:21:30.936966 [info ] [Thread-3 (]: 8 of 14 SKIP relation main.kpi_latency_ms_per_decision ......................... [[33mSKIP[0m]
+[0m14:21:30.938483 [info ] [Thread-2 (]: 9 of 14 SKIP relation main.kpi_rolling_avg_distance ............................ [[33mSKIP[0m]
+[0m14:21:30.941650 [info ] [Thread-1 (]: 10 of 14 SKIP relation main.kpi_steps_per_coin ................................. [[33mSKIP[0m]
+[0m14:21:30.944649 [debug] [Thread-4 (]: Finished running node model.npc_benchmark.kpi_invalid_action_rate
+[0m14:21:30.946646 [debug] [Thread-3 (]: Finished running node model.npc_benchmark.kpi_latency_ms_per_decision
+[0m14:21:30.948707 [debug] [Thread-2 (]: Finished running node model.npc_benchmark.kpi_rolling_avg_distance
+[0m14:21:30.951725 [debug] [Thread-1 (]: Finished running node model.npc_benchmark.kpi_steps_per_coin
+[0m14:21:30.953808 [debug] [Thread-4 (]: Began running node model.npc_benchmark.kpi_tokens_per_decision
+[0m14:21:30.955812 [debug] [Thread-3 (]: Began running node model.npc_benchmark.kpi_tokens_used_per_run
+[0m14:21:30.958829 [debug] [Thread-2 (]: Began running node model.npc_benchmark.kpi_wasted_moves
+[0m14:21:30.963498 [info ] [Thread-4 (]: 11 of 14 SKIP relation main.kpi_tokens_per_decision ............................ [[33mSKIP[0m]
+[0m14:21:30.965728 [info ] [Thread-3 (]: 12 of 14 SKIP relation main.kpi_tokens_used_per_run ............................ [[33mSKIP[0m]
+[0m14:21:30.968251 [info ] [Thread-2 (]: 13 of 14 SKIP relation main.kpi_wasted_moves ................................... [[33mSKIP[0m]
+[0m14:21:30.971522 [debug] [Thread-4 (]: Finished running node model.npc_benchmark.kpi_tokens_per_decision
+[0m14:21:30.974889 [debug] [Thread-3 (]: Finished running node model.npc_benchmark.kpi_tokens_used_per_run
+[0m14:21:30.979551 [debug] [Thread-2 (]: Finished running node model.npc_benchmark.kpi_wasted_moves
+[0m14:21:30.984482 [debug] [Thread-1 (]: Began running node model.npc_benchmark.kpi_efficiency_score
+[0m14:21:30.987847 [info ] [Thread-1 (]: 14 of 14 SKIP relation main.kpi_efficiency_score ............................... [[33mSKIP[0m]
+[0m14:21:30.991152 [debug] [Thread-1 (]: Finished running node model.npc_benchmark.kpi_efficiency_score
+[0m14:21:30.995699 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:21:30.997696 [debug] [MainThread]: On master: BEGIN
+[0m14:21:30.999705 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m14:21:31.001705 [debug] [MainThread]: SQL status: OK in 0.002 seconds
+[0m14:21:31.005258 [debug] [MainThread]: On master: COMMIT
+[0m14:21:31.007253 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:21:31.009796 [debug] [MainThread]: On master: COMMIT
+[0m14:21:31.012792 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m14:21:31.014309 [debug] [MainThread]: On master: Close
+[0m14:21:31.016852 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:21:31.019389 [debug] [MainThread]: Connection 'create_benchmark_main' was properly closed.
+[0m14:21:31.021388 [debug] [MainThread]: Connection 'list_benchmark_main' was properly closed.
+[0m14:21:31.023388 [debug] [MainThread]: Connection 'model.npc_benchmark.stg_runs' was properly closed.
+[0m14:21:31.026472 [debug] [MainThread]: Connection 'model.npc_benchmark.stg_steps' was properly closed.
+[0m14:21:31.029510 [info ] [MainThread]: 
+[0m14:21:31.031530 [info ] [MainThread]: Finished running 12 table models, 2 view models in 0 hours 0 minutes and 1.51 seconds (1.51s).
+[0m14:21:31.035509 [debug] [MainThread]: Command end result
+[0m14:21:31.120416 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\pierr\OneDrive\Bureau\etl\npc_benchmark\target\manifest.json
+[0m14:21:31.134290 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\pierr\OneDrive\Bureau\etl\npc_benchmark\target\semantic_manifest.json
+[0m14:21:31.153925 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\pierr\OneDrive\Bureau\etl\npc_benchmark\target\run_results.json
+[0m14:21:31.156160 [info ] [MainThread]: 
+[0m14:21:31.161156 [info ] [MainThread]: [31mCompleted with 2 errors, 0 partial successes, and 0 warnings:[0m
+[0m14:21:31.165178 [info ] [MainThread]: 
+[0m14:21:31.167204 [error] [MainThread]: [31mFailure in model stg_runs (models\staging\stg_runs.sql)[0m
+[0m14:21:31.169742 [error] [MainThread]:   Runtime Error in model stg_runs (models\staging\stg_runs.sql)
+  IO Error: No files found that match the pattern "../../data/silver/runs.parquet"
+  
+  LINE 6: from read_parquet('../../data/silver/runs.parquet')
+               ^
+[0m14:21:31.171772 [info ] [MainThread]: 
+[0m14:21:31.174285 [info ] [MainThread]:   compiled code at target\compiled\npc_benchmark\models\staging\stg_runs.sql
+[0m14:21:31.177693 [info ] [MainThread]: 
+[0m14:21:31.180707 [error] [MainThread]: [31mFailure in model stg_steps (models\staging\stg_steps.sql)[0m
+[0m14:21:31.183708 [error] [MainThread]:   Runtime Error in model stg_steps (models\staging\stg_steps.sql)
+  IO Error: No files found that match the pattern "../../data/silver/steps.parquet"
+  
+  LINE 6: from read_parquet('../../data/silver/steps.parquet')
+               ^
+[0m14:21:31.184723 [info ] [MainThread]: 
+[0m14:21:31.187952 [info ] [MainThread]:   compiled code at target\compiled\npc_benchmark\models\staging\stg_steps.sql
+[0m14:21:31.189950 [info ] [MainThread]: 
+[0m14:21:31.192308 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=2 SKIP=12 NO-OP=0 TOTAL=14
+[0m14:21:31.198846 [debug] [MainThread]: Command `dbt run` failed at 14:21:31.197331 after 9.33 seconds
+[0m14:21:31.199874 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A09546DD00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A09606A7B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A0959CBB60>]}
+[0m14:21:31.202241 [debug] [MainThread]: Flushing usage events
+[0m14:21:32.370489 [debug] [MainThread]: An error was encountered while trying to flush usage events

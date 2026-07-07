@@ -62,8 +62,8 @@ manquantes explicitement, déduplique par `run_id` / `(run_id, step_index)`, et 
 
 ```bash
 cd dbt/npc_benchmark
-../../.venv/Scripts/dbt run --profiles-dir .
-../../.venv/Scripts/dbt test --profiles-dir .   # optionnel : vérifie unicité/not-null de run_id
+../.venv/Scripts/dbt run --profiles-dir .
+../.venv/Scripts/dbt test --profiles-dir .   # optionnel : vérifie unicité/not-null de run_id
 ```
 
 Génère `data/gold/benchmark.duckdb`, avec un modèle par KPI (`kpi_steps_per_coin`,
