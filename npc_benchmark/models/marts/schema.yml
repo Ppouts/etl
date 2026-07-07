@@ -1,0 +1,103 @@
+version: 2
+
+models:
+  - name: kpi_steps_per_coin
+    description: Nombre moyen de pas pour ramasser une pièce d'or, agrégé par configuration. Calculé par run (nb_pas / pièces_ramassées) puis moyenné.
+    columns:
+      - name: config_niveau_algo
+        description: Dimension d'agrégation.
+      - name: config_nom_modele
+        description: Dimension d'agrégation.
+      - name: config_format_prompt
+        description: Dimension d'agrégation.
+      - name: steps_per_coin
+        description: Moyenne, sur les runs de la config, de (nb_pas / pièces_ramassées).
+      - name: nb_runs
+        description: Nombre de runs agrégés pour cette configuration.
+
+  - name: kpi_wasted_moves
+    description: >
+      Nombre moyen de pas "gaspillés" par run : un pas est gaspillé s'il est invalide
+      (mur, bord de grille, ennemi bloquant) ou s'il est valide mais n'a pas réduit la
+      distance à la cible.
+    columns:
+      - name: wasted_moves
+        description: Moyenne du nombre de pas gaspillés par run, pour cette configuration.
+
+  - name: kpi_rolling_avg_distance
+    description: >
+      Moyenne glissante (fenêtre de 3 pas) de la distance de Manhattan à la pièce ciblée,
+      moyennée ensuite sur l'ensemble des pas de la configuration. Sert à visualiser si
+      l'agent se rapproche globalement de sa cible dans la durée.
+    columns:
+      - name: rolling_avg_distance
+        description: Moyenne des moyennes glissantes de distance à la cible.
+
+  - name: kpi_coin_priority_switches
+    description: >
+      Nombre moyen de fois, par run, où la pièce ciblée par l'agent change avant d'avoir
+      été atteinte (un changement de cible causé par un ramassage effectif ne compte pas).
+    columns:
+      - name: coin_priority_switches
+        description: Moyenne du nombre de changements de cible par run.
+
+  - name: kpi_success_rate
+    description: Proportion de runs où toutes les pièces d'or ont été ramassées, agrégée par configuration.
+    columns:
+      - name: success_rate
+        description: nb_runs_gagnés / nb_runs, entre 0 et 1.
+      - name: nb_runs
+        description: Nombre de runs agrégés pour cette configuration.
+
+  - name: kpi_enemy_contacts
+    description: Nombre moyen de contacts avec un ennemi par run (chaque contact bloque le déplacement et applique une pénalité de points, mais ne termine pas le run).
+    columns:
+      - name: enemy_contacts
+        description: Moyenne du nombre de contacts ennemis par run.
+
+  - name: kpi_points_lost_to_penalty
+    description: Moyenne des points perdus à cause des pénalités (contacts ennemis) par run, agrégée par configuration.
+    columns:
+      - name: points_lost_to_penalty
+        description: Moyenne de points_perdus_penalites sur les runs de la configuration.
+
+  - name: kpi_tokens_used_per_run
+    description: Moyenne du total de tokens (input + output, tous les pas confondus) consommés par run, agrégée par configuration.
+    columns:
+      - name: tokens_used_per_run
+        description: Moyenne des tokens totaux consommés par run.
+
+  - name: kpi_tokens_per_decision
+    description: Moyenne des tokens (input + output) consommés par décision individuelle du LLM, agrégée par configuration.
+    columns:
+      - name: tokens_per_decision
+        description: Moyenne des tokens par pas/décision.
+
+  - name: kpi_latency_ms_per_decision
+    description: Latence moyenne (en millisecondes) d'un appel LLM par décision, agrégée par configuration.
+    columns:
+      - name: latency_ms_per_decision
+        description: Moyenne de latence par décision, en ms.
+
+  - name: kpi_invalid_action_rate
+    description: Proportion de pas où l'action demandée par le LLM n'a pas pu être exécutée (mur, bord de grille, ou ennemi bloquant), agrégée par configuration.
+    columns:
+      - name: invalid_action_rate
+        description: nb_pas_invalides / nb_pas_totaux, entre 0 et 1.
+
+  - name: kpi_efficiency_score
+    description: >
+      Score composite d'efficacité par configuration : efficiency_score = (success_rate * 100)
+      / (1 + tokens_used_per_run / 1000) / (1 + enemy_contacts). Le succès porte tout le poids
+      positif ; le coût en tokens et les contacts ennemis pénalisent en douceur (diviseurs "1 + x",
+      jamais de score négatif, pas de division par zéro). Voir le commentaire du modèle SQL pour
+      le détail du raisonnement.
+    columns:
+      - name: success_rate
+        description: Repris de kpi_success_rate, pour audit du calcul.
+      - name: tokens_used_per_run
+        description: Repris de kpi_tokens_used_per_run, pour audit du calcul.
+      - name: enemy_contacts
+        description: Repris de kpi_enemy_contacts, pour audit du calcul.
+      - name: efficiency_score
+        description: Score composite final (plus haut = meilleur compromis succès/coût/sécurité).

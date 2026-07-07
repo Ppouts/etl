@@ -1,0 +1,22 @@
+-- Moyenne glissante (fenêtre de 3 pas) de la distance à la cible, moyennée ensuite sur tous les pas du groupe.
+with rolling as (
+    select
+        r.config_niveau_algo,
+        r.config_nom_modele,
+        r.config_format_prompt,
+        avg(s.distance_cible_manhattan) over (
+            partition by s.run_id order by s.step_index
+            rows between 2 preceding and current row
+        ) as rolling_distance
+    from {{ ref('stg_steps') }} s
+    join {{ ref('stg_runs') }} r using (run_id)
+    where s.distance_cible_manhattan is not null
+)
+
+select
+    config_niveau_algo,
+    config_nom_modele,
+    config_format_prompt,
+    avg(rolling_distance) as rolling_avg_distance
+from rolling
+group by 1, 2, 3

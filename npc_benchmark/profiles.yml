@@ -1,0 +1,8 @@
+npc_benchmark:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      # relatif au dossier depuis lequel `dbt run` est lancé (dbt/npc_benchmark/)
+      path: "../../data/gold/benchmark.duckdb"
+      threads: 4

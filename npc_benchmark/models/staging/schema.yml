@@ -1,0 +1,73 @@
+version: 2
+
+models:
+  - name: stg_runs
+    description: Une ligne par run complet, lue directement depuis le parquet silver (déjà nettoyé/dédupliqué).
+    columns:
+      - name: run_id
+        description: Identifiant unique du run, généré au lancement dans game_loop.
+        tests:
+          - unique
+          - not_null
+      - name: config_id
+        description: Hash court de la configuration (niveau_algo, modèle, format_prompt, historique_active, priorisation_explicite, temperature).
+      - name: config_niveau_algo
+        description: Niveau algorithmique de l'agent (ex. llm_only).
+      - name: config_nom_modele
+        description: Nom du modèle LLM utilisé (identifiant LM Studio).
+      - name: config_param_count_modele
+        description: Nombre de paramètres du modèle (mapping manuel, LM Studio ne l'expose pas).
+      - name: config_format_prompt
+        description: Identifiant de la version du template de prompt utilisé.
+      - name: config_historique_active
+        description: Si vrai, l'historique des derniers mouvements était injecté dans le prompt.
+      - name: config_priorisation_explicite
+        description: Si vrai, le prompt énonçait explicitement "éviter l'ennemi > ramasser l'or".
+      - name: config_temperature
+        description: Température utilisée pour l'appel LLM.
+      - name: nb_pieces_ramassees
+        description: Nombre de pièces d'or ramassées durant le run.
+      - name: nb_pieces_totales
+        description: Nombre total de pièces présentes sur la carte en début de run.
+      - name: points_perdus_penalites
+        description: Somme des pénalités de points subies (contacts ennemis) sur le run.
+      - name: duree_totale
+        description: Durée du run en secondes (temps réel, incluant les appels LLM).
+      - name: timestamp
+        description: Horodatage de début du run (UTC).
+
+  - name: stg_steps
+    description: Une ligne par pas/décision, lue directement depuis le parquet silver (déjà nettoyé/dédupliqué).
+    columns:
+      - name: run_id
+        description: Référence vers stg_runs.run_id.
+        tests:
+          - not_null
+      - name: step_index
+        description: Index du pas dans le run (0-based).
+      - name: position_row
+        description: Ligne de l'agent au moment de la décision (avant déplacement).
+      - name: position_col
+        description: Colonne de l'agent au moment de la décision (avant déplacement).
+      - name: action_choisie
+        description: Direction choisie par le LLM (HAUT/BAS/GAUCHE/DROITE), NULL si la réponse n'était pas parsable.
+      - name: action_valid
+        description: Vrai si le déplacement demandé a effectivement changé la position de l'agent (faux = mur, bord de grille ou ennemi bloquant).
+      - name: distance_cible_manhattan
+        description: Distance de Manhattan (nb de pas) vers la pièce d'or la plus proche au moment de la décision. NULL si plus aucune pièce sur la carte.
+      - name: target_row
+        description: Ligne de la pièce d'or ciblée à ce pas. NULL si plus aucune pièce.
+      - name: target_col
+        description: Colonne de la pièce d'or ciblée à ce pas. NULL si plus aucune pièce.
+      - name: contact_ennemi
+        description: Vrai si ce pas correspond à une tentative de déplacement sur une case ennemie (pénalité appliquée, déplacement bloqué).
+      - name: points_lost_step
+        description: Points perdus à ce pas précis (0 sauf contact ennemi).
+      - name: tokens_input
+        description: Tokens du prompt envoyé au LLM pour cette décision. NULL si LM Studio n'a pas renvoyé l'usage.
+      - name: tokens_output
+        description: Tokens générés par le LLM pour cette décision. NULL si LM Studio n'a pas renvoyé l'usage.
+      - name: latence_ms
+        description: Latence de l'appel LLM pour cette décision, en millisecondes.
+      - name: timestamp
+        description: Horodatage du pas (UTC).
