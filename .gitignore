@@ -1,18 +1,2 @@
 .venv
 .env
-
-# Data lake (bronze/silver sont régénérés depuis les runs, gold depuis dbt)
-data/bronze/
-data/silver/
-data/gold/*.duckdb
-data/gold/*.duckdb.wal
-
-# dbt
-dbt/npc_benchmark/target/
-dbt/npc_benchmark/logs/
-dbt/npc_benchmark/dbt_packages/
-dbt/npc_benchmark/.user.yml
-
-# Python
-__pycache__/
-*.pyc
