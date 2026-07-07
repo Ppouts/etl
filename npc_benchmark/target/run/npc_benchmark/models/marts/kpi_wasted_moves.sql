@@ -1,11 +1,20 @@
-with ordered as (
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_wasted_moves__dbt_tmp"
+  
+    as (
+      with ordered as (
     select
         run_id,
         step_index,
         action_valid,
         distance_cible_manhattan,
         lag(distance_cible_manhattan) over (partition by run_id order by step_index) as prev_distance
-    from {{ ref('stg_steps') }}
+    from "benchmark"."main"."stg_steps"
 ),
 
 flagged as (
@@ -34,6 +43,9 @@ select
     r.config_format_prompt,
     avg(rl.wasted_moves_run) as wasted_moves,
     count(*) as nb_runs
-from {{ ref('stg_runs') }} r
+from "benchmark"."main"."stg_runs" r
 join run_level rl using (run_id)
 group by 1, 2, 3
+    );
+  
+  

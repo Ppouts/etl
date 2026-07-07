@@ -1,10 +1,3 @@
-"""
-Bronze -> Silver : charge tous les parquets bronze (steps + runs), nettoie, déduplique,
-écrit deux tables silver propres et jointes sur run_id.
-
-Usage : python pipeline/silver_transform.py
-"""
-
 from pathlib import Path
 
 import duckdb
@@ -24,7 +17,6 @@ def clean_runs(con: duckdb.DuckDBPyConnection) -> None:
         WITH raw AS (
             SELECT * FROM read_parquet('{BRONZE_RUNS_GLOB}', union_by_name=True)
         ),
-        -- champs sans lesquels une ligne "run" est inexploitable : on l'exclut explicitement (pas un silent drop)
         valid AS (
             SELECT *
             FROM raw
@@ -33,7 +25,6 @@ def clean_runs(con: duckdb.DuckDBPyConnection) -> None:
               AND timestamp IS NOT NULL
               AND nb_pieces_totales IS NOT NULL
         ),
-        -- un run_id ne doit apparaître qu'une fois : on garde la ligne la plus récente en cas de doublon
         deduped AS (
             SELECT *, row_number() OVER (PARTITION BY run_id ORDER BY timestamp DESC) AS rn
             FROM valid
@@ -50,7 +41,6 @@ def clean_runs(con: duckdb.DuckDBPyConnection) -> None:
             CAST(config_temperature AS DOUBLE) AS config_temperature,
             CAST(nb_pieces_ramassees AS INTEGER) AS nb_pieces_ramassees,
             CAST(nb_pieces_totales AS INTEGER) AS nb_pieces_totales,
-            -- pénalité manquante = aucun contact enregistré, pas une valeur inconnue -> 0 explicite
             CAST(COALESCE(points_perdus_penalites, 0) AS INTEGER) AS points_perdus_penalites,
             CAST(duree_totale AS DOUBLE) AS duree_totale,
             CAST(timestamp AS TIMESTAMP) AS timestamp
@@ -72,7 +62,6 @@ def clean_steps(con: duckdb.DuckDBPyConnection) -> None:
         WITH raw AS (
             SELECT * FROM read_parquet('{BRONZE_STEPS_GLOB}', union_by_name=True)
         ),
-        -- un pas sans run_id/step_index/timestamp n'est pas rattachable à un run : exclu explicitement
         valid AS (
             SELECT *
             FROM raw
@@ -80,7 +69,6 @@ def clean_steps(con: duckdb.DuckDBPyConnection) -> None:
               AND step_index IS NOT NULL
               AND timestamp IS NOT NULL
         ),
-        -- un (run_id, step_index) ne doit apparaître qu'une fois
         deduped AS (
             SELECT *, row_number() OVER (PARTITION BY run_id, step_index ORDER BY timestamp DESC) AS rn
             FROM valid
@@ -91,15 +79,12 @@ def clean_steps(con: duckdb.DuckDBPyConnection) -> None:
             CAST(position_row AS INTEGER) AS position_row,
             CAST(position_col AS INTEGER) AS position_col,
             action_choisie,
-            -- une décision LLM non parsable => action invalide explicite, pas un NULL silencieux
             COALESCE(CAST(action_valid AS BOOLEAN), FALSE) AS action_valid,
-            -- NULL légitime : plus aucune pièce sur la carte à ce pas (pas une valeur manquante à imputer)
             CAST(distance_cible_manhattan AS INTEGER) AS distance_cible_manhattan,
             CAST(target_row AS INTEGER) AS target_row,
             CAST(target_col AS INTEGER) AS target_col,
             COALESCE(CAST(contact_ennemi AS BOOLEAN), FALSE) AS contact_ennemi,
             CAST(COALESCE(points_lost_step, 0) AS INTEGER) AS points_lost_step,
-            -- NULL légitime : LM Studio ne renvoie pas toujours l'usage token
             CAST(tokens_input AS INTEGER) AS tokens_input,
             CAST(tokens_output AS INTEGER) AS tokens_output,
             CAST(latence_ms AS DOUBLE) AS latence_ms,

@@ -61,7 +61,7 @@ manquantes explicitement, déduplique par `run_id` / `(run_id, step_index)`, et 
 ## 3. Agrégats KPI (gold)
 
 ```bash
-cd dbt/npc_benchmark
+cd npc_benchmark
 ../.venv/Scripts/dbt run --profiles-dir .
 ../.venv/Scripts/dbt test --profiles-dir .   # optionnel : vérifie unicité/not-null de run_id
 ```
@@ -94,5 +94,5 @@ npc_brain.ipynb (plusieurs runs/configs)  →  data/bronze/{steps,runs}/*.parque
 python pipeline/silver_transform.py       →  data/silver/{steps,runs}.parquet
    │
    ▼
-dbt run (depuis dbt/npc_benchmark/)       →  data/gold/benchmark.duckdb (KPI par config)
+dbt run (depuis npc_benchmark/)           →  data/gold/benchmark.duckdb (KPI par config)
 ```

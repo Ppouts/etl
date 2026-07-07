@@ -7,8 +7,8 @@ with rolling as (
             partition by s.run_id order by s.step_index
             rows between 2 preceding and current row
         ) as rolling_distance
-    from {{ ref('stg_steps') }} s
-    join {{ ref('stg_runs') }} r using (run_id)
+    from "benchmark"."main"."stg_steps" s
+    join "benchmark"."main"."stg_runs" r using (run_id)
     where s.distance_cible_manhattan is not null
 )
 

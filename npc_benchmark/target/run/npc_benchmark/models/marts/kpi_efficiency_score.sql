@@ -1,4 +1,13 @@
-select
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_efficiency_score__dbt_tmp"
+  
+    as (
+      select
     sr.config_niveau_algo,
     sr.config_nom_modele,
     sr.config_format_prompt,
@@ -11,8 +20,11 @@ select
         / (1 + ec.enemy_contacts),
         2
     ) as efficiency_score
-from {{ ref('kpi_success_rate') }} sr
-join {{ ref('kpi_tokens_used_per_run') }} tk
+from "benchmark"."main"."kpi_success_rate" sr
+join "benchmark"."main"."kpi_tokens_used_per_run" tk
     using (config_niveau_algo, config_nom_modele, config_format_prompt)
-join {{ ref('kpi_enemy_contacts') }} ec
+join "benchmark"."main"."kpi_enemy_contacts" ec
     using (config_niveau_algo, config_nom_modele, config_format_prompt)
+    );
+  
+  

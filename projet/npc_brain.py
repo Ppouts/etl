@@ -40,28 +40,20 @@ LLM_API_TOKEN = os.environ["LLM_API_TOKEN"]
 MODEL = "google/gemma-4-e2b"
 
 # %%
-# LLM_API_URL = os.environ["LMSTUDIO_BASE_URL"]
-# LLM_API_TOKEN = os.environ["LM_API_TOKEN"]
-# MODEL = "gemma-4-26B"
-
-# %%
 client = OpenAI(
     base_url=LLM_API_URL,
     api_key=LLM_API_TOKEN
 )
 
 # %%
-# Chemins bronze (un fichier parquet par run, un dossier par granularité)
 BRONZE_STEPS_DIR = Path("../data/bronze/steps")
 BRONZE_RUNS_DIR = Path("../data/bronze/runs")
 BRONZE_STEPS_DIR.mkdir(parents=True, exist_ok=True)
 BRONZE_RUNS_DIR.mkdir(parents=True, exist_ok=True)
 
-# Règles de score
-GOLD_POINTS = 1      # points gagnés par pièce ramassée
-ENEMY_PENALTY = 5     # points perdus par contact avec un ennemi (le run continue, ce n'est plus un Game Over)
+GOLD_POINTS = 1
+ENEMY_PENALTY = 5
 
-# Mapping manuel modèle -> nombre de paramètres (non exposé par l'API LM Studio)
 MODEL_PARAM_COUNTS = {
     "google/gemma-4-e2b": "2B",
     "google/gemma-4-12b-qat": "12B",
@@ -81,11 +73,11 @@ SYMBOLS = {VOID: "·", PLAYER: "👤", ENNEMY: "👹", GOLD: "💰"}
 # %%
 initial_map = np.array([
     [0, 3, 0, 0, 0, 0, 0],
-    [0, 1, 0, 0, 2, 0, 3], # (1, 1) # (1, 4) # (1, 6)
+    [0, 1, 0, 0, 2, 0, 3],
     [0, 3, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 3], # (5, 6)
+    [0, 0, 0, 0, 0, 0, 3],
     [0, 0, 0, 0, 0, 0, 0],
 ])
 initial_map
@@ -144,7 +136,7 @@ def compute_distances(entities_positions, reference_pos):
         return np.array([])
 
     v = entities_positions - reference_pos
-    distances = np.abs(v).sum(axis=1)  # distance Manhattan : nb de pas réels sur une grille à 4 directions
+    distances = np.abs(v).sum(axis=1)
 
     return distances.astype(int)
 
@@ -211,7 +203,6 @@ def allowed_move(world_map: np.ndarray, pos):
     if r < 0 or c < 0 or r >= n_rows or c >= n_cols:
         return False
 
-    # L'ennemi bloque comme un mur : le contact (pénalité) est géré dans game_loop, pas ici
     return world_map[r, c] in (VOID, GOLD)
 
 
@@ -330,7 +321,6 @@ def game_loop(world_map: np.ndarray, config: RunConfig, max_turns: int = 10) -> 
         player_pos = localize(world_map, PLAYER)[0]
         old_pos = (int(player_pos[0]), int(player_pos[1]))
 
-        # Détection d'oscillation (ex: HAUT BAS HAUT BAS)
         is_oscillating = (
             len(move_history) >= 4 and
             move_history[-1] == move_history[-3] and

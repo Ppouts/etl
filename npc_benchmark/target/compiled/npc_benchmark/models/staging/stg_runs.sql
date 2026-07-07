@@ -1,2 +1,2 @@
 select *
-from read_parquet('../../data/silver/runs.parquet')
+from read_parquet('../data/silver/runs.parquet')

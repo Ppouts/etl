@@ -12,9 +12,7 @@ clean-targets:
   - "dbt_packages"
 
 vars:
-  # chemin vers les parquets silver, relatif au dossier depuis lequel `dbt run` est lancé
-  # (dbt/npc_benchmark/), donc relatif à ce dossier
-  silver_path: "../../data/silver"
+  silver_path: "../data/silver"
 
 models:
   npc_benchmark:

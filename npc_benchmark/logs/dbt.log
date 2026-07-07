@@ -1155,3 +1155,2194 @@ from read_parquet('../../data/silver/runs.parquet')
 [0m14:21:31.199874 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A09546DD00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A09606A7B0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002A0959CBB60>]}
 [0m14:21:31.202241 [debug] [MainThread]: Flushing usage events
 [0m14:21:32.370489 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:33:13.573724 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57AEAD940>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D577A674D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57C06BD90>]}
+
+
+============================== 14:33:13.578956 | 7a48a755-aaba-48ee-89c1-e16303f8016e ==============================
+[0m14:33:13.578956 [info ] [MainThread]: Running with dbt=1.11.12
+[0m14:33:13.580031 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': '.', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt ', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\lukas\\Documents\\GitHub\\etl\\npc_benchmark\\logs'}
+[0m14:33:13.873606 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57B395220>]}
+[0m14:33:13.948686 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57C097BD0>]}
+[0m14:33:13.951328 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m14:33:14.278444 [debug] [MainThread]: checksum: f368f5348cf42803b94ef7fb8257ecf3bf9a9a16dd9c8c51fe5172f2dbeb457f, vars: {}, profile: , target: , version: 1.11.12
+[0m14:33:14.374679 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m14:33:14.375162 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57D172A50>]}
+[0m14:33:15.853467 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57C07AC60>]}
+[0m14:33:15.936753 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\lukas\Documents\GitHub\etl\npc_benchmark\target\manifest.json
+[0m14:33:15.939525 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\lukas\Documents\GitHub\etl\npc_benchmark\target\semantic_manifest.json
+[0m14:33:15.959690 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57D90F3F0>]}
+[0m14:33:15.960208 [info ] [MainThread]: Found 14 models, 3 data tests, 485 macros
+[0m14:33:15.960638 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57D77AEA0>]}
+[0m14:33:15.963399 [info ] [MainThread]: 
+[0m14:33:15.963880 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m14:33:15.964214 [info ] [MainThread]: 
+[0m14:33:15.964687 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m14:33:15.969849 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_benchmark'
+[0m14:33:16.092600 [debug] [ThreadPool]: Using duckdb connection "list_benchmark"
+[0m14:33:16.092973 [debug] [ThreadPool]: On list_benchmark: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "list_benchmark"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"benchmark"'
+    
+  
+  
+[0m14:33:16.093258 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:33:16.110718 [debug] [ThreadPool]: SQL status: OK in 0.017 seconds
+[0m14:33:16.112278 [debug] [ThreadPool]: On list_benchmark: Close
+[0m14:33:16.113152 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_benchmark, now create_benchmark_main)
+[0m14:33:16.113626 [debug] [ThreadPool]: Creating schema "database: "benchmark"
+schema: "main"
+"
+[0m14:33:16.119417 [debug] [ThreadPool]: Using duckdb connection "create_benchmark_main"
+[0m14:33:16.119811 [debug] [ThreadPool]: On create_benchmark_main: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "create_benchmark_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='benchmark'
+        and type='sqlite'
+    
+  
+[0m14:33:16.120101 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m14:33:16.121004 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m14:33:16.122139 [debug] [ThreadPool]: Using duckdb connection "create_benchmark_main"
+[0m14:33:16.122426 [debug] [ThreadPool]: On create_benchmark_main: BEGIN
+[0m14:33:16.122857 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m14:33:16.123135 [debug] [ThreadPool]: Using duckdb connection "create_benchmark_main"
+[0m14:33:16.123406 [debug] [ThreadPool]: On create_benchmark_main: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "create_benchmark_main"} */
+
+    
+    
+        create schema if not exists "benchmark"."main"
+    
+[0m14:33:16.123952 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m14:33:16.124681 [debug] [ThreadPool]: On create_benchmark_main: COMMIT
+[0m14:33:16.124984 [debug] [ThreadPool]: Using duckdb connection "create_benchmark_main"
+[0m14:33:16.125354 [debug] [ThreadPool]: On create_benchmark_main: COMMIT
+[0m14:33:16.125847 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m14:33:16.126135 [debug] [ThreadPool]: On create_benchmark_main: Close
+[0m14:33:16.128040 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_benchmark_main'
+[0m14:33:16.134407 [debug] [ThreadPool]: Using duckdb connection "list_benchmark_main"
+[0m14:33:16.134857 [debug] [ThreadPool]: On list_benchmark_main: BEGIN
+[0m14:33:16.135278 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m14:33:16.135922 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m14:33:16.136295 [debug] [ThreadPool]: Using duckdb connection "list_benchmark_main"
+[0m14:33:16.136668 [debug] [ThreadPool]: On list_benchmark_main: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "list_benchmark_main"} */
+select
+      'benchmark' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'benchmark'
+  
+[0m14:33:16.140549 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m14:33:16.141822 [debug] [ThreadPool]: On list_benchmark_main: ROLLBACK
+[0m14:33:16.144357 [debug] [ThreadPool]: Failed to rollback 'list_benchmark_main'
+[0m14:33:16.144924 [debug] [ThreadPool]: On list_benchmark_main: Close
+[0m14:33:16.146181 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57D9BBDD0>]}
+[0m14:33:16.146700 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:33:16.147003 [debug] [MainThread]: On master: BEGIN
+[0m14:33:16.147270 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:33:16.147852 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m14:33:16.148136 [debug] [MainThread]: On master: COMMIT
+[0m14:33:16.148409 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:33:16.148668 [debug] [MainThread]: On master: COMMIT
+[0m14:33:16.149111 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m14:33:16.149396 [debug] [MainThread]: On master: Close
+[0m14:33:16.154255 [debug] [Thread-2 (]: Began running node model.npc_benchmark.stg_steps
+[0m14:33:16.154658 [debug] [Thread-1 (]: Began running node model.npc_benchmark.stg_runs
+[0m14:33:16.155103 [info ] [Thread-2 (]: 2 of 14 START sql view model main.stg_steps .................................... [RUN]
+[0m14:33:16.155617 [info ] [Thread-1 (]: 1 of 14 START sql view model main.stg_runs ..................................... [RUN]
+[0m14:33:16.156153 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.npc_benchmark.stg_steps'
+[0m14:33:16.156593 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.npc_benchmark.stg_runs'
+[0m14:33:16.156935 [debug] [Thread-2 (]: Began compiling node model.npc_benchmark.stg_steps
+[0m14:33:16.157276 [debug] [Thread-1 (]: Began compiling node model.npc_benchmark.stg_runs
+[0m14:33:16.164520 [debug] [Thread-2 (]: Writing injected SQL for node "model.npc_benchmark.stg_steps"
+[0m14:33:16.167005 [debug] [Thread-1 (]: Writing injected SQL for node "model.npc_benchmark.stg_runs"
+[0m14:33:16.168168 [debug] [Thread-1 (]: Began executing node model.npc_benchmark.stg_runs
+[0m14:33:16.168650 [debug] [Thread-2 (]: Began executing node model.npc_benchmark.stg_steps
+[0m14:33:16.201793 [debug] [Thread-2 (]: Writing runtime sql for node "model.npc_benchmark.stg_steps"
+[0m14:33:16.203349 [debug] [Thread-1 (]: Writing runtime sql for node "model.npc_benchmark.stg_runs"
+[0m14:33:16.204335 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.stg_runs"
+[0m14:33:16.204777 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: BEGIN
+[0m14:33:16.205102 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m14:33:16.206065 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.stg_steps"
+[0m14:33:16.206450 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: BEGIN
+[0m14:33:16.206786 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m14:33:16.207269 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m14:33:16.207602 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.stg_runs"
+[0m14:33:16.207924 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_runs"} */
+
+  
+  create view "benchmark"."main"."stg_runs__dbt_tmp" as (
+    select *
+from read_parquet('../data/silver/runs.parquet')
+  );
+
+[0m14:33:16.208629 [debug] [Thread-2 (]: SQL status: OK in 0.002 seconds
+[0m14:33:16.209030 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.stg_steps"
+[0m14:33:16.209390 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_steps"} */
+
+  
+  create view "benchmark"."main"."stg_steps__dbt_tmp" as (
+    select *
+from read_parquet('../data/silver/steps.parquet')
+  );
+
+[0m14:33:16.209906 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m14:33:16.215989 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.stg_runs"
+[0m14:33:16.216422 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_runs"} */
+alter view "benchmark"."main"."stg_runs__dbt_tmp" rename to "stg_runs"
+[0m14:33:16.216792 [debug] [Thread-2 (]: SQL status: OK in 0.007 seconds
+[0m14:33:16.219405 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.stg_steps"
+[0m14:33:16.219751 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_steps"} */
+alter view "benchmark"."main"."stg_steps__dbt_tmp" rename to "stg_steps"
+[0m14:33:16.220230 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m14:33:16.232750 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: COMMIT
+[0m14:33:16.233181 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.stg_runs"
+[0m14:33:16.233508 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: COMMIT
+[0m14:33:16.233954 [debug] [Thread-2 (]: SQL status: OK in 0.014 seconds
+[0m14:33:16.235271 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: COMMIT
+[0m14:33:16.235647 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.stg_steps"
+[0m14:33:16.235979 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: COMMIT
+[0m14:33:16.236533 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m14:33:16.241508 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.stg_runs"
+[0m14:33:16.241924 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_runs"} */
+
+      drop view if exists "benchmark"."main"."stg_runs__dbt_backup" cascade
+    
+[0m14:33:16.242434 [debug] [Thread-2 (]: SQL status: OK in 0.006 seconds
+[0m14:33:16.244613 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.stg_steps"
+[0m14:33:16.245243 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_steps"} */
+
+      drop view if exists "benchmark"."main"."stg_steps__dbt_backup" cascade
+    
+[0m14:33:16.245856 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m14:33:16.248328 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: Close
+[0m14:33:16.249668 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m14:33:16.250870 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: Close
+[0m14:33:16.251849 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57DAEA6D0>]}
+[0m14:33:16.252723 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57B31B390>]}
+[0m14:33:16.252407 [info ] [Thread-1 (]: 1 of 14 OK created sql view model main.stg_runs ................................ [[32mOK[0m in 0.09s]
+[0m14:33:16.253870 [debug] [Thread-1 (]: Finished running node model.npc_benchmark.stg_runs
+[0m14:33:16.253236 [info ] [Thread-2 (]: 2 of 14 OK created sql view model main.stg_steps ............................... [[32mOK[0m in 0.10s]
+[0m14:33:16.254611 [debug] [Thread-2 (]: Finished running node model.npc_benchmark.stg_steps
+[0m14:33:16.255113 [debug] [Thread-4 (]: Began running node model.npc_benchmark.kpi_success_rate
+[0m14:33:16.255959 [debug] [Thread-3 (]: Began running node model.npc_benchmark.kpi_points_lost_to_penalty
+[0m14:33:16.256746 [debug] [Thread-1 (]: Began running node model.npc_benchmark.kpi_coin_priority_switches
+[0m14:33:16.257656 [debug] [Thread-2 (]: Began running node model.npc_benchmark.kpi_enemy_contacts
+[0m14:33:16.255541 [info ] [Thread-4 (]: 4 of 14 START sql table model main.kpi_success_rate ............................ [RUN]
+[0m14:33:16.258819 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.npc_benchmark.kpi_success_rate'
+[0m14:33:16.259166 [debug] [Thread-4 (]: Began compiling node model.npc_benchmark.kpi_success_rate
+[0m14:33:16.261303 [debug] [Thread-4 (]: Writing injected SQL for node "model.npc_benchmark.kpi_success_rate"
+[0m14:33:16.256420 [info ] [Thread-3 (]: 3 of 14 START sql table model main.kpi_points_lost_to_penalty .................. [RUN]
+[0m14:33:16.262316 [debug] [Thread-3 (]: Acquiring new duckdb connection 'model.npc_benchmark.kpi_points_lost_to_penalty'
+[0m14:33:16.262883 [debug] [Thread-3 (]: Began compiling node model.npc_benchmark.kpi_points_lost_to_penalty
+[0m14:33:16.257302 [info ] [Thread-1 (]: 5 of 14 START sql table model main.kpi_coin_priority_switches .................. [RUN]
+[0m14:33:16.265691 [debug] [Thread-3 (]: Writing injected SQL for node "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m14:33:16.258250 [info ] [Thread-2 (]: 6 of 14 START sql table model main.kpi_enemy_contacts .......................... [RUN]
+[0m14:33:16.266287 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.stg_runs, now model.npc_benchmark.kpi_coin_priority_switches)
+[0m14:33:16.266832 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.stg_steps, now model.npc_benchmark.kpi_enemy_contacts)
+[0m14:33:16.267290 [debug] [Thread-1 (]: Began compiling node model.npc_benchmark.kpi_coin_priority_switches
+[0m14:33:16.267719 [debug] [Thread-4 (]: Began executing node model.npc_benchmark.kpi_success_rate
+[0m14:33:16.268033 [debug] [Thread-2 (]: Began compiling node model.npc_benchmark.kpi_enemy_contacts
+[0m14:33:16.271286 [debug] [Thread-1 (]: Writing injected SQL for node "model.npc_benchmark.kpi_coin_priority_switches"
+[0m14:33:16.271714 [debug] [Thread-3 (]: Began executing node model.npc_benchmark.kpi_points_lost_to_penalty
+[0m14:33:16.288805 [debug] [Thread-4 (]: Writing runtime sql for node "model.npc_benchmark.kpi_success_rate"
+[0m14:33:16.292142 [debug] [Thread-2 (]: Writing injected SQL for node "model.npc_benchmark.kpi_enemy_contacts"
+[0m14:33:16.295267 [debug] [Thread-3 (]: Writing runtime sql for node "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m14:33:16.296865 [debug] [Thread-1 (]: Began executing node model.npc_benchmark.kpi_coin_priority_switches
+[0m14:33:16.300004 [debug] [Thread-1 (]: Writing runtime sql for node "model.npc_benchmark.kpi_coin_priority_switches"
+[0m14:33:16.300896 [debug] [Thread-2 (]: Began executing node model.npc_benchmark.kpi_enemy_contacts
+[0m14:33:16.301370 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_success_rate"
+[0m14:33:16.301765 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m14:33:16.304280 [debug] [Thread-2 (]: Writing runtime sql for node "model.npc_benchmark.kpi_enemy_contacts"
+[0m14:33:16.304781 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_success_rate: BEGIN
+[0m14:33:16.305291 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: BEGIN
+[0m14:33:16.305893 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_coin_priority_switches"
+[0m14:33:16.306618 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m14:33:16.307215 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m14:33:16.307728 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_coin_priority_switches: BEGIN
+[0m14:33:16.309071 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:33:16.309807 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_enemy_contacts"
+[0m14:33:16.310302 [debug] [Thread-4 (]: SQL status: OK in 0.004 seconds
+[0m14:33:16.310816 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m14:33:16.311215 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_enemy_contacts: BEGIN
+[0m14:33:16.311713 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m14:33:16.312261 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_success_rate"
+[0m14:33:16.312821 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m14:33:16.313323 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m14:33:16.313793 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_coin_priority_switches"
+[0m14:33:16.314309 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_success_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_success_rate"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_success_rate__dbt_tmp"
+  
+    as (
+      select
+    config_niveau_algo,
+    config_nom_modele,
+    config_format_prompt,
+    avg(case when nb_pieces_ramassees = nb_pieces_totales then 1.0 else 0.0 end) as success_rate,
+    count(*) as nb_runs
+from "benchmark"."main"."stg_runs"
+group by 1, 2, 3
+    );
+  
+  
+[0m14:33:16.314669 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_points_lost_to_penalty"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_points_lost_to_penalty__dbt_tmp"
+  
+    as (
+      select
+    config_niveau_algo,
+    config_nom_modele,
+    config_format_prompt,
+    avg(points_perdus_penalites) as points_lost_to_penalty,
+    count(*) as nb_runs
+from "benchmark"."main"."stg_runs"
+group by 1, 2, 3
+    );
+  
+  
+[0m14:33:16.315361 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_coin_priority_switches: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_coin_priority_switches"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_coin_priority_switches__dbt_tmp"
+  
+    as (
+      -- Nombre de fois où la pièce ciblée change avant d'avoir été atteinte
+-- (un changement de cible causé par le ramassage effectif de la précédente ne compte pas).
+with ordered as (
+    select
+        run_id,
+        step_index,
+        position_row,
+        position_col,
+        target_row,
+        target_col,
+        lag(target_row) over (partition by run_id order by step_index) as prev_target_row,
+        lag(target_col) over (partition by run_id order by step_index) as prev_target_col
+    from "benchmark"."main"."stg_steps"
+),
+
+flagged as (
+    select
+        run_id,
+        case
+            when prev_target_row is not null
+                 and (target_row is distinct from prev_target_row
+                      or target_col is distinct from prev_target_col)
+                 and not (position_row = prev_target_row and position_col = prev_target_col)
+                then 1
+            else 0
+        end as is_switch
+    from ordered
+),
+
+run_level as (
+    select run_id, sum(is_switch) as switches_run
+    from flagged
+    group by run_id
+)
+
+select
+    r.config_niveau_algo,
+    r.config_nom_modele,
+    r.config_format_prompt,
+    avg(rl.switches_run) as coin_priority_switches
+from "benchmark"."main"."stg_runs" r
+join run_level rl using (run_id)
+group by 1, 2, 3
+    );
+  
+  
+[0m14:33:16.316083 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m14:33:16.316898 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_enemy_contacts"
+[0m14:33:16.317545 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_enemy_contacts: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_enemy_contacts"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_enemy_contacts__dbt_tmp"
+  
+    as (
+      with run_contacts as (
+    select run_id, sum(case when contact_ennemi then 1 else 0 end) as contacts_run
+    from "benchmark"."main"."stg_steps"
+    group by run_id
+)
+
+select
+    r.config_niveau_algo,
+    r.config_nom_modele,
+    r.config_format_prompt,
+    avg(rc.contacts_run) as enemy_contacts
+from "benchmark"."main"."stg_runs" r
+join run_contacts rc using (run_id)
+group by 1, 2, 3
+    );
+  
+  
+[0m14:33:16.320454 [debug] [Thread-4 (]: SQL status: OK in 0.005 seconds
+[0m14:33:16.320954 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m14:33:16.325153 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_success_rate"
+[0m14:33:16.328175 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m14:33:16.328916 [debug] [Thread-2 (]: SQL status: OK in 0.011 seconds
+[0m14:33:16.329571 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_success_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_success_rate"} */
+alter table "benchmark"."main"."kpi_success_rate__dbt_tmp" rename to "kpi_success_rate"
+[0m14:33:16.330067 [debug] [Thread-1 (]: SQL status: OK in 0.013 seconds
+[0m14:33:16.330614 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_points_lost_to_penalty"} */
+alter table "benchmark"."main"."kpi_points_lost_to_penalty__dbt_tmp" rename to "kpi_points_lost_to_penalty"
+[0m14:33:16.333265 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_enemy_contacts"
+[0m14:33:16.335992 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_coin_priority_switches"
+[0m14:33:16.336510 [debug] [Thread-4 (]: SQL status: OK in 0.003 seconds
+[0m14:33:16.336977 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_enemy_contacts: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_enemy_contacts"} */
+alter table "benchmark"."main"."kpi_enemy_contacts__dbt_tmp" rename to "kpi_enemy_contacts"
+[0m14:33:16.337544 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_coin_priority_switches: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_coin_priority_switches"} */
+alter table "benchmark"."main"."kpi_coin_priority_switches__dbt_tmp" rename to "kpi_coin_priority_switches"
+[0m14:33:16.337907 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m14:33:16.342188 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_success_rate: COMMIT
+[0m14:33:16.344002 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: COMMIT
+[0m14:33:16.344409 [debug] [Thread-2 (]: SQL status: OK in 0.002 seconds
+[0m14:33:16.344950 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_success_rate"
+[0m14:33:16.345559 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m14:33:16.346042 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m14:33:16.347758 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_enemy_contacts: COMMIT
+[0m14:33:16.348177 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_success_rate: COMMIT
+[0m14:33:16.349493 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_coin_priority_switches: COMMIT
+[0m14:33:16.349994 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: COMMIT
+[0m14:33:16.350368 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_enemy_contacts"
+[0m14:33:16.350920 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_coin_priority_switches"
+[0m14:33:16.351590 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_enemy_contacts: COMMIT
+[0m14:33:16.352105 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_coin_priority_switches: COMMIT
+[0m14:33:16.352587 [debug] [Thread-4 (]: SQL status: OK in 0.002 seconds
+[0m14:33:16.355702 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_success_rate"
+[0m14:33:16.356222 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_success_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_success_rate"} */
+
+      drop table if exists "benchmark"."main"."kpi_success_rate__dbt_backup" cascade
+    
+[0m14:33:16.356795 [debug] [Thread-3 (]: SQL status: OK in 0.005 seconds
+[0m14:33:16.362643 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m14:33:16.363162 [debug] [Thread-1 (]: SQL status: OK in 0.010 seconds
+[0m14:33:16.363638 [debug] [Thread-4 (]: SQL status: OK in 0.007 seconds
+[0m14:33:16.363977 [debug] [Thread-2 (]: SQL status: OK in 0.011 seconds
+[0m14:33:16.364439 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_points_lost_to_penalty"} */
+
+      drop table if exists "benchmark"."main"."kpi_points_lost_to_penalty__dbt_backup" cascade
+    
+[0m14:33:16.366464 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_coin_priority_switches"
+[0m14:33:16.367625 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_success_rate: Close
+[0m14:33:16.369845 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_enemy_contacts"
+[0m14:33:16.370520 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_coin_priority_switches: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_coin_priority_switches"} */
+
+      drop table if exists "benchmark"."main"."kpi_coin_priority_switches__dbt_backup" cascade
+    
+[0m14:33:16.371366 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57DD37ED0>]}
+[0m14:33:16.371784 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_enemy_contacts: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_enemy_contacts"} */
+
+      drop table if exists "benchmark"."main"."kpi_enemy_contacts__dbt_backup" cascade
+    
+[0m14:33:16.372148 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m14:33:16.372834 [info ] [Thread-4 (]: 4 of 14 OK created sql table model main.kpi_success_rate ....................... [[32mOK[0m in 0.11s]
+[0m14:33:16.374442 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: Close
+[0m14:33:16.374927 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m14:33:16.375418 [debug] [Thread-4 (]: Finished running node model.npc_benchmark.kpi_success_rate
+[0m14:33:16.375720 [debug] [Thread-2 (]: SQL status: OK in 0.002 seconds
+[0m14:33:16.376312 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57EF349F0>]}
+[0m14:33:16.377457 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_coin_priority_switches: Close
+[0m14:33:16.377944 [debug] [Thread-4 (]: Began running node model.npc_benchmark.kpi_invalid_action_rate
+[0m14:33:16.379785 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_enemy_contacts: Close
+[0m14:33:16.380754 [info ] [Thread-3 (]: 3 of 14 OK created sql table model main.kpi_points_lost_to_penalty ............. [[32mOK[0m in 0.11s]
+[0m14:33:16.381478 [info ] [Thread-4 (]: 7 of 14 START sql table model main.kpi_invalid_action_rate ..................... [RUN]
+[0m14:33:16.382126 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57EF02690>]}
+[0m14:33:16.382512 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57EF028D0>]}
+[0m14:33:16.383007 [debug] [Thread-3 (]: Finished running node model.npc_benchmark.kpi_points_lost_to_penalty
+[0m14:33:16.383368 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_success_rate, now model.npc_benchmark.kpi_invalid_action_rate)
+[0m14:33:16.383886 [info ] [Thread-1 (]: 5 of 14 OK created sql table model main.kpi_coin_priority_switches ............. [[32mOK[0m in 0.12s]
+[0m14:33:16.384441 [info ] [Thread-2 (]: 6 of 14 OK created sql table model main.kpi_enemy_contacts ..................... [[32mOK[0m in 0.12s]
+[0m14:33:16.385071 [debug] [Thread-3 (]: Began running node model.npc_benchmark.kpi_latency_ms_per_decision
+[0m14:33:16.385610 [debug] [Thread-4 (]: Began compiling node model.npc_benchmark.kpi_invalid_action_rate
+[0m14:33:16.386268 [debug] [Thread-1 (]: Finished running node model.npc_benchmark.kpi_coin_priority_switches
+[0m14:33:16.386796 [debug] [Thread-2 (]: Finished running node model.npc_benchmark.kpi_enemy_contacts
+[0m14:33:16.389736 [debug] [Thread-4 (]: Writing injected SQL for node "model.npc_benchmark.kpi_invalid_action_rate"
+[0m14:33:16.387229 [info ] [Thread-3 (]: 8 of 14 START sql table model main.kpi_latency_ms_per_decision ................. [RUN]
+[0m14:33:16.390321 [debug] [Thread-1 (]: Began running node model.npc_benchmark.kpi_rolling_avg_distance
+[0m14:33:16.390736 [debug] [Thread-2 (]: Began running node model.npc_benchmark.kpi_steps_per_coin
+[0m14:33:16.391426 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_points_lost_to_penalty, now model.npc_benchmark.kpi_latency_ms_per_decision)
+[0m14:33:16.392084 [info ] [Thread-1 (]: 9 of 14 START sql table model main.kpi_rolling_avg_distance .................... [RUN]
+[0m14:33:16.392705 [info ] [Thread-2 (]: 10 of 14 START sql table model main.kpi_steps_per_coin ......................... [RUN]
+[0m14:33:16.393185 [debug] [Thread-3 (]: Began compiling node model.npc_benchmark.kpi_latency_ms_per_decision
+[0m14:33:16.393812 [debug] [Thread-4 (]: Began executing node model.npc_benchmark.kpi_invalid_action_rate
+[0m14:33:16.394086 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_coin_priority_switches, now model.npc_benchmark.kpi_rolling_avg_distance)
+[0m14:33:16.394496 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_enemy_contacts, now model.npc_benchmark.kpi_steps_per_coin)
+[0m14:33:16.398045 [debug] [Thread-3 (]: Writing injected SQL for node "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m14:33:16.401405 [debug] [Thread-4 (]: Writing runtime sql for node "model.npc_benchmark.kpi_invalid_action_rate"
+[0m14:33:16.401906 [debug] [Thread-1 (]: Began compiling node model.npc_benchmark.kpi_rolling_avg_distance
+[0m14:33:16.402260 [debug] [Thread-2 (]: Began compiling node model.npc_benchmark.kpi_steps_per_coin
+[0m14:33:16.404833 [debug] [Thread-1 (]: Writing injected SQL for node "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m14:33:16.407518 [debug] [Thread-2 (]: Writing injected SQL for node "model.npc_benchmark.kpi_steps_per_coin"
+[0m14:33:16.408688 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_invalid_action_rate"
+[0m14:33:16.409283 [debug] [Thread-3 (]: Began executing node model.npc_benchmark.kpi_latency_ms_per_decision
+[0m14:33:16.409715 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_invalid_action_rate: BEGIN
+[0m14:33:16.413657 [debug] [Thread-3 (]: Writing runtime sql for node "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m14:33:16.414362 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m14:33:16.414883 [debug] [Thread-2 (]: Began executing node model.npc_benchmark.kpi_steps_per_coin
+[0m14:33:16.415788 [debug] [Thread-1 (]: Began executing node model.npc_benchmark.kpi_rolling_avg_distance
+[0m14:33:16.419692 [debug] [Thread-2 (]: Writing runtime sql for node "model.npc_benchmark.kpi_steps_per_coin"
+[0m14:33:16.420303 [debug] [Thread-4 (]: SQL status: OK in 0.006 seconds
+[0m14:33:16.423236 [debug] [Thread-1 (]: Writing runtime sql for node "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m14:33:16.424005 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_invalid_action_rate"
+[0m14:33:16.424612 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m14:33:16.425251 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_invalid_action_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_invalid_action_rate"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_invalid_action_rate__dbt_tmp"
+  
+    as (
+      select
+    r.config_niveau_algo,
+    r.config_nom_modele,
+    r.config_format_prompt,
+    avg(case when not s.action_valid then 1.0 else 0.0 end) as invalid_action_rate
+from "benchmark"."main"."stg_steps" s
+join "benchmark"."main"."stg_runs" r using (run_id)
+group by 1, 2, 3
+    );
+  
+  
+[0m14:33:16.425659 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: BEGIN
+[0m14:33:16.426401 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m14:33:16.426837 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_steps_per_coin"
+[0m14:33:16.427488 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_steps_per_coin: BEGIN
+[0m14:33:16.427921 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m14:33:16.428546 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m14:33:16.429379 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: BEGIN
+[0m14:33:16.429871 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m14:33:16.430789 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:33:16.431332 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m14:33:16.431672 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m14:33:16.432202 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_steps_per_coin"
+[0m14:33:16.432597 [debug] [Thread-4 (]: SQL status: OK in 0.006 seconds
+[0m14:33:16.432989 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_latency_ms_per_decision"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_latency_ms_per_decision__dbt_tmp"
+  
+    as (
+      select
+    r.config_niveau_algo,
+    r.config_nom_modele,
+    r.config_format_prompt,
+    avg(s.latence_ms) as latency_ms_per_decision
+from "benchmark"."main"."stg_steps" s
+join "benchmark"."main"."stg_runs" r using (run_id)
+group by 1, 2, 3
+    );
+  
+  
+[0m14:33:16.433355 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m14:33:16.433701 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_steps_per_coin: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_steps_per_coin"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_steps_per_coin__dbt_tmp"
+  
+    as (
+      with run_steps as (
+    select run_id, count(*) as nb_steps
+    from "benchmark"."main"."stg_steps"
+    group by run_id
+),
+
+run_level as (
+    select
+        r.config_niveau_algo,
+        r.config_nom_modele,
+        r.config_format_prompt,
+        r.run_id,
+        case when r.nb_pieces_ramassees > 0
+            then rs.nb_steps::double / r.nb_pieces_ramassees
+        end as steps_per_coin_run
+    from "benchmark"."main"."stg_runs" r
+    join run_steps rs using (run_id)
+)
+
+select
+    config_niveau_algo,
+    config_nom_modele,
+    config_format_prompt,
+    avg(steps_per_coin_run) as steps_per_coin,
+    count(*) as nb_runs
+from run_level
+group by 1, 2, 3
+    );
+  
+  
+[0m14:33:16.436271 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_invalid_action_rate"
+[0m14:33:16.436806 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m14:33:16.437446 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_invalid_action_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_invalid_action_rate"} */
+alter table "benchmark"."main"."kpi_invalid_action_rate__dbt_tmp" rename to "kpi_invalid_action_rate"
+[0m14:33:16.437868 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_rolling_avg_distance"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_rolling_avg_distance__dbt_tmp"
+  
+    as (
+      -- Moyenne glissante (fenêtre de 3 pas) de la distance à la cible, moyennée ensuite sur tous les pas du groupe.
+with rolling as (
+    select
+        r.config_niveau_algo,
+        r.config_nom_modele,
+        r.config_format_prompt,
+        avg(s.distance_cible_manhattan) over (
+            partition by s.run_id order by s.step_index
+            rows between 2 preceding and current row
+        ) as rolling_distance
+    from "benchmark"."main"."stg_steps" s
+    join "benchmark"."main"."stg_runs" r using (run_id)
+    where s.distance_cible_manhattan is not null
+)
+
+select
+    config_niveau_algo,
+    config_nom_modele,
+    config_format_prompt,
+    avg(rolling_distance) as rolling_avg_distance
+from rolling
+group by 1, 2, 3
+    );
+  
+  
+[0m14:33:16.438641 [debug] [Thread-4 (]: SQL status: OK in 0.000 seconds
+[0m14:33:16.440658 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_invalid_action_rate: COMMIT
+[0m14:33:16.441287 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_invalid_action_rate"
+[0m14:33:16.441809 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_invalid_action_rate: COMMIT
+[0m14:33:16.442369 [debug] [Thread-3 (]: SQL status: OK in 0.006 seconds
+[0m14:33:16.446445 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m14:33:16.446902 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_latency_ms_per_decision"} */
+alter table "benchmark"."main"."kpi_latency_ms_per_decision__dbt_tmp" rename to "kpi_latency_ms_per_decision"
+[0m14:33:16.447416 [debug] [Thread-2 (]: SQL status: OK in 0.010 seconds
+[0m14:33:16.450090 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_steps_per_coin"
+[0m14:33:16.450504 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_steps_per_coin: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_steps_per_coin"} */
+alter table "benchmark"."main"."kpi_steps_per_coin__dbt_tmp" rename to "kpi_steps_per_coin"
+[0m14:33:16.450868 [debug] [Thread-4 (]: SQL status: OK in 0.009 seconds
+[0m14:33:16.451198 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m14:33:16.451509 [debug] [Thread-1 (]: SQL status: OK in 0.013 seconds
+[0m14:33:16.453813 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_invalid_action_rate"
+[0m14:33:16.455157 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: COMMIT
+[0m14:33:16.455514 [debug] [Thread-2 (]: SQL status: OK in 0.004 seconds
+[0m14:33:16.457802 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m14:33:16.458191 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_invalid_action_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_invalid_action_rate"} */
+
+      drop table if exists "benchmark"."main"."kpi_invalid_action_rate__dbt_backup" cascade
+    
+[0m14:33:16.458550 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m14:33:16.459853 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_steps_per_coin: COMMIT
+[0m14:33:16.460212 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_rolling_avg_distance"} */
+alter table "benchmark"."main"."kpi_rolling_avg_distance__dbt_tmp" rename to "kpi_rolling_avg_distance"
+[0m14:33:16.460734 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: COMMIT
+[0m14:33:16.461088 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_steps_per_coin"
+[0m14:33:16.461490 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m14:33:16.462197 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_steps_per_coin: COMMIT
+[0m14:33:16.463715 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_invalid_action_rate: Close
+[0m14:33:16.465357 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m14:33:16.465950 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m14:33:16.466912 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57EF018B0>]}
+[0m14:33:16.469094 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m14:33:16.469530 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m14:33:16.470929 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: COMMIT
+[0m14:33:16.471980 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_latency_ms_per_decision"} */
+
+      drop table if exists "benchmark"."main"."kpi_latency_ms_per_decision__dbt_backup" cascade
+    
+[0m14:33:16.471599 [info ] [Thread-4 (]: 7 of 14 OK created sql table model main.kpi_invalid_action_rate ................ [[32mOK[0m in 0.08s]
+[0m14:33:16.474336 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_steps_per_coin"
+[0m14:33:16.474694 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m14:33:16.475390 [debug] [Thread-4 (]: Finished running node model.npc_benchmark.kpi_invalid_action_rate
+[0m14:33:16.475746 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_steps_per_coin: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_steps_per_coin"} */
+
+      drop table if exists "benchmark"."main"."kpi_steps_per_coin__dbt_backup" cascade
+    
+[0m14:33:16.476117 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: COMMIT
+[0m14:33:16.476435 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m14:33:16.476822 [debug] [Thread-4 (]: Began running node model.npc_benchmark.kpi_tokens_per_decision
+[0m14:33:16.479279 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: Close
+[0m14:33:16.479691 [debug] [Thread-2 (]: SQL status: OK in 0.002 seconds
+[0m14:33:16.480402 [info ] [Thread-4 (]: 11 of 14 START sql table model main.kpi_tokens_per_decision .................... [RUN]
+[0m14:33:16.481305 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57DB27CB0>]}
+[0m14:33:16.481713 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m14:33:16.483006 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_steps_per_coin: Close
+[0m14:33:16.483463 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_invalid_action_rate, now model.npc_benchmark.kpi_tokens_per_decision)
+[0m14:33:16.486049 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m14:33:16.484058 [info ] [Thread-3 (]: 8 of 14 OK created sql table model main.kpi_latency_ms_per_decision ............ [[32mOK[0m in 0.09s]
+[0m14:33:16.486679 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57EF02CF0>]}
+[0m14:33:16.487032 [debug] [Thread-4 (]: Began compiling node model.npc_benchmark.kpi_tokens_per_decision
+[0m14:33:16.487395 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_rolling_avg_distance"} */
+
+      drop table if exists "benchmark"."main"."kpi_rolling_avg_distance__dbt_backup" cascade
+    
+[0m14:33:16.487922 [debug] [Thread-3 (]: Finished running node model.npc_benchmark.kpi_latency_ms_per_decision
+[0m14:33:16.491105 [debug] [Thread-4 (]: Writing injected SQL for node "model.npc_benchmark.kpi_tokens_per_decision"
+[0m14:33:16.491716 [debug] [Thread-3 (]: Began running node model.npc_benchmark.kpi_tokens_used_per_run
+[0m14:33:16.488440 [info ] [Thread-2 (]: 10 of 14 OK created sql table model main.kpi_steps_per_coin .................... [[32mOK[0m in 0.09s]
+[0m14:33:16.492372 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:33:16.492817 [info ] [Thread-3 (]: 12 of 14 START sql table model main.kpi_tokens_used_per_run .................... [RUN]
+[0m14:33:16.493398 [debug] [Thread-2 (]: Finished running node model.npc_benchmark.kpi_steps_per_coin
+[0m14:33:16.494739 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: Close
+[0m14:33:16.495497 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_latency_ms_per_decision, now model.npc_benchmark.kpi_tokens_used_per_run)
+[0m14:33:16.496074 [debug] [Thread-4 (]: Began executing node model.npc_benchmark.kpi_tokens_per_decision
+[0m14:33:16.496592 [debug] [Thread-2 (]: Began running node model.npc_benchmark.kpi_wasted_moves
+[0m14:33:16.497238 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57EF031D0>]}
+[0m14:33:16.497620 [debug] [Thread-3 (]: Began compiling node model.npc_benchmark.kpi_tokens_used_per_run
+[0m14:33:16.500402 [debug] [Thread-4 (]: Writing runtime sql for node "model.npc_benchmark.kpi_tokens_per_decision"
+[0m14:33:16.500888 [info ] [Thread-2 (]: 13 of 14 START sql table model main.kpi_wasted_moves ........................... [RUN]
+[0m14:33:16.501506 [info ] [Thread-1 (]: 9 of 14 OK created sql table model main.kpi_rolling_avg_distance ............... [[32mOK[0m in 0.10s]
+[0m14:33:16.503859 [debug] [Thread-3 (]: Writing injected SQL for node "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m14:33:16.504360 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_steps_per_coin, now model.npc_benchmark.kpi_wasted_moves)
+[0m14:33:16.504965 [debug] [Thread-1 (]: Finished running node model.npc_benchmark.kpi_rolling_avg_distance
+[0m14:33:16.505461 [debug] [Thread-2 (]: Began compiling node model.npc_benchmark.kpi_wasted_moves
+[0m14:33:16.508396 [debug] [Thread-2 (]: Writing injected SQL for node "model.npc_benchmark.kpi_wasted_moves"
+[0m14:33:16.509076 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_per_decision"
+[0m14:33:16.509596 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_tokens_per_decision: BEGIN
+[0m14:33:16.510079 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m14:33:16.510600 [debug] [Thread-3 (]: Began executing node model.npc_benchmark.kpi_tokens_used_per_run
+[0m14:33:16.510994 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m14:33:16.514785 [debug] [Thread-3 (]: Writing runtime sql for node "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m14:33:16.515239 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_per_decision"
+[0m14:33:16.515763 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_tokens_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_per_decision"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_tokens_per_decision__dbt_tmp"
+  
+    as (
+      select
+    r.config_niveau_algo,
+    r.config_nom_modele,
+    r.config_format_prompt,
+    avg(coalesce(s.tokens_input, 0) + coalesce(s.tokens_output, 0)) as tokens_per_decision
+from "benchmark"."main"."stg_steps" s
+join "benchmark"."main"."stg_runs" r using (run_id)
+group by 1, 2, 3
+    );
+  
+  
+[0m14:33:16.516162 [debug] [Thread-2 (]: Began executing node model.npc_benchmark.kpi_wasted_moves
+[0m14:33:16.519598 [debug] [Thread-2 (]: Writing runtime sql for node "model.npc_benchmark.kpi_wasted_moves"
+[0m14:33:16.520338 [debug] [Thread-4 (]: SQL status: OK in 0.004 seconds
+[0m14:33:16.522895 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_per_decision"
+[0m14:33:16.523256 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_tokens_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_per_decision"} */
+alter table "benchmark"."main"."kpi_tokens_per_decision__dbt_tmp" rename to "kpi_tokens_per_decision"
+[0m14:33:16.523794 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m14:33:16.524141 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_used_per_run: BEGIN
+[0m14:33:16.524467 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m14:33:16.524959 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m14:33:16.526328 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_tokens_per_decision: COMMIT
+[0m14:33:16.526691 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_per_decision"
+[0m14:33:16.527020 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_tokens_per_decision: COMMIT
+[0m14:33:16.527511 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_wasted_moves"
+[0m14:33:16.528186 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m14:33:16.528897 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_wasted_moves: BEGIN
+[0m14:33:16.529748 [debug] [Thread-4 (]: SQL status: OK in 0.002 seconds
+[0m14:33:16.530227 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m14:33:16.530631 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m14:33:16.532835 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_per_decision"
+[0m14:33:16.533213 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_used_per_run: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_used_per_run"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_tokens_used_per_run__dbt_tmp"
+  
+    as (
+      with run_tokens as (
+    select run_id, sum(coalesce(tokens_input, 0) + coalesce(tokens_output, 0)) as tokens_run
+    from "benchmark"."main"."stg_steps"
+    group by run_id
+)
+
+select
+    r.config_niveau_algo,
+    r.config_nom_modele,
+    r.config_format_prompt,
+    avg(rt.tokens_run) as tokens_used_per_run
+from "benchmark"."main"."stg_runs" r
+join run_tokens rt using (run_id)
+group by 1, 2, 3
+    );
+  
+  
+[0m14:33:16.533760 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_tokens_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_per_decision"} */
+
+      drop table if exists "benchmark"."main"."kpi_tokens_per_decision__dbt_backup" cascade
+    
+[0m14:33:16.534268 [debug] [Thread-2 (]: SQL status: OK in 0.004 seconds
+[0m14:33:16.534753 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_wasted_moves"
+[0m14:33:16.535158 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_wasted_moves: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_wasted_moves"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_wasted_moves__dbt_tmp"
+  
+    as (
+      -- Un pas est "gaspillé" si le déplacement était invalide (mur/bord/ennemi bloquant),
+-- ou s'il était valide mais n'a pas rapproché l'agent de sa cible (distance stable ou en hausse).
+with ordered as (
+    select
+        run_id,
+        step_index,
+        action_valid,
+        distance_cible_manhattan,
+        lag(distance_cible_manhattan) over (partition by run_id order by step_index) as prev_distance
+    from "benchmark"."main"."stg_steps"
+),
+
+flagged as (
+    select
+        run_id,
+        case
+            when not action_valid then 1
+            when prev_distance is not null
+                 and distance_cible_manhattan is not null
+                 and distance_cible_manhattan >= prev_distance
+                then 1
+            else 0
+        end as is_wasted
+    from ordered
+),
+
+run_level as (
+    select run_id, sum(is_wasted) as wasted_moves_run
+    from flagged
+    group by run_id
+)
+
+select
+    r.config_niveau_algo,
+    r.config_nom_modele,
+    r.config_format_prompt,
+    avg(rl.wasted_moves_run) as wasted_moves,
+    count(*) as nb_runs
+from "benchmark"."main"."stg_runs" r
+join run_level rl using (run_id)
+group by 1, 2, 3
+    );
+  
+  
+[0m14:33:16.535779 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m14:33:16.537815 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_tokens_per_decision: Close
+[0m14:33:16.538750 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57D705CD0>]}
+[0m14:33:16.540078 [debug] [Thread-3 (]: SQL status: OK in 0.006 seconds
+[0m14:33:16.539507 [info ] [Thread-4 (]: 11 of 14 OK created sql table model main.kpi_tokens_per_decision ............... [[32mOK[0m in 0.06s]
+[0m14:33:16.543054 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m14:33:16.543615 [debug] [Thread-4 (]: Finished running node model.npc_benchmark.kpi_tokens_per_decision
+[0m14:33:16.544125 [debug] [Thread-2 (]: SQL status: OK in 0.009 seconds
+[0m14:33:16.544553 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_used_per_run: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_used_per_run"} */
+alter table "benchmark"."main"."kpi_tokens_used_per_run__dbt_tmp" rename to "kpi_tokens_used_per_run"
+[0m14:33:16.549058 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_wasted_moves"
+[0m14:33:16.549868 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_wasted_moves: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_wasted_moves"} */
+alter table "benchmark"."main"."kpi_wasted_moves__dbt_tmp" rename to "kpi_wasted_moves"
+[0m14:33:16.550575 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m14:33:16.552025 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_used_per_run: COMMIT
+[0m14:33:16.552398 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m14:33:16.552722 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_used_per_run: COMMIT
+[0m14:33:16.553166 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m14:33:16.554478 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_wasted_moves: COMMIT
+[0m14:33:16.554844 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_wasted_moves"
+[0m14:33:16.555171 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_wasted_moves: COMMIT
+[0m14:33:16.555674 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m14:33:16.563181 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m14:33:16.563753 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_used_per_run: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_used_per_run"} */
+
+      drop table if exists "benchmark"."main"."kpi_tokens_used_per_run__dbt_backup" cascade
+    
+[0m14:33:16.564329 [debug] [Thread-2 (]: SQL status: OK in 0.009 seconds
+[0m14:33:16.566287 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_wasted_moves"
+[0m14:33:16.566647 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_wasted_moves: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_wasted_moves"} */
+
+      drop table if exists "benchmark"."main"."kpi_wasted_moves__dbt_backup" cascade
+    
+[0m14:33:16.567096 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m14:33:16.568306 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_used_per_run: Close
+[0m14:33:16.568649 [debug] [Thread-2 (]: SQL status: OK in 0.002 seconds
+[0m14:33:16.569119 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57D730410>]}
+[0m14:33:16.570223 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_wasted_moves: Close
+[0m14:33:16.570786 [info ] [Thread-3 (]: 12 of 14 OK created sql table model main.kpi_tokens_used_per_run ............... [[32mOK[0m in 0.07s]
+[0m14:33:16.571380 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57DB26E10>]}
+[0m14:33:16.571874 [debug] [Thread-3 (]: Finished running node model.npc_benchmark.kpi_tokens_used_per_run
+[0m14:33:16.572386 [info ] [Thread-2 (]: 13 of 14 OK created sql table model main.kpi_wasted_moves ...................... [[32mOK[0m in 0.07s]
+[0m14:33:16.573113 [debug] [Thread-2 (]: Finished running node model.npc_benchmark.kpi_wasted_moves
+[0m14:33:16.573684 [debug] [Thread-1 (]: Began running node model.npc_benchmark.kpi_efficiency_score
+[0m14:33:16.574115 [info ] [Thread-1 (]: 14 of 14 START sql table model main.kpi_efficiency_score ....................... [RUN]
+[0m14:33:16.574760 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_rolling_avg_distance, now model.npc_benchmark.kpi_efficiency_score)
+[0m14:33:16.575128 [debug] [Thread-1 (]: Began compiling node model.npc_benchmark.kpi_efficiency_score
+[0m14:33:16.579420 [debug] [Thread-1 (]: Writing injected SQL for node "model.npc_benchmark.kpi_efficiency_score"
+[0m14:33:16.580774 [debug] [Thread-1 (]: Began executing node model.npc_benchmark.kpi_efficiency_score
+[0m14:33:16.583531 [debug] [Thread-1 (]: Writing runtime sql for node "model.npc_benchmark.kpi_efficiency_score"
+[0m14:33:16.584683 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_efficiency_score"
+[0m14:33:16.585070 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_efficiency_score: BEGIN
+[0m14:33:16.585397 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m14:33:16.586008 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:33:16.586342 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_efficiency_score"
+[0m14:33:16.586712 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_efficiency_score: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_efficiency_score"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_efficiency_score__dbt_tmp"
+  
+    as (
+      -- Score composite (0-100 en théorie, borné en pratique par success_rate) :
+--   efficiency_score = (success_rate * 100) / (1 + tokens_used_per_run / 1000) / (1 + enemy_contacts)
+--
+-- Logique : success_rate porte tout le poids positif (une config qui ne finit jamais la carte
+-- ne peut pas avoir un bon score, quel que soit son coût). Les deux facteurs de pénalité sont
+-- des diviseurs "1 + x" plutôt que des soustractions : ça évite les scores négatifs, ça reste
+-- doux (une config qui coûte 1000 tokens de plus par run perd ~moitié de son score plutôt que
+-- d'être écrasée), et ça évite la division par zéro quand tokens_used_per_run ou enemy_contacts
+-- valent 0. Le diviseur /1000 sur les tokens est un ordre de grandeur pour ce benchmark
+-- (quelques appels LLM par run) ; à ajuster si les runs deviennent beaucoup plus longs.
+select
+    sr.config_niveau_algo,
+    sr.config_nom_modele,
+    sr.config_format_prompt,
+    sr.success_rate,
+    tk.tokens_used_per_run,
+    ec.enemy_contacts,
+    round(
+        (sr.success_rate * 100)
+        / (1 + tk.tokens_used_per_run / 1000.0)
+        / (1 + ec.enemy_contacts),
+        2
+    ) as efficiency_score
+from "benchmark"."main"."kpi_success_rate" sr
+join "benchmark"."main"."kpi_tokens_used_per_run" tk
+    using (config_niveau_algo, config_nom_modele, config_format_prompt)
+join "benchmark"."main"."kpi_enemy_contacts" ec
+    using (config_niveau_algo, config_nom_modele, config_format_prompt)
+    );
+  
+  
+[0m14:33:16.589477 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m14:33:16.592089 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_efficiency_score"
+[0m14:33:16.592463 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_efficiency_score: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_efficiency_score"} */
+alter table "benchmark"."main"."kpi_efficiency_score__dbt_tmp" rename to "kpi_efficiency_score"
+[0m14:33:16.593132 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m14:33:16.594428 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_efficiency_score: COMMIT
+[0m14:33:16.594848 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_efficiency_score"
+[0m14:33:16.595415 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_efficiency_score: COMMIT
+[0m14:33:16.597333 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m14:33:16.599708 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_efficiency_score"
+[0m14:33:16.600067 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_efficiency_score: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_efficiency_score"} */
+
+      drop table if exists "benchmark"."main"."kpi_efficiency_score__dbt_backup" cascade
+    
+[0m14:33:16.600685 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m14:33:16.601883 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_efficiency_score: Close
+[0m14:33:16.602374 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '7a48a755-aaba-48ee-89c1-e16303f8016e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57EF01130>]}
+[0m14:33:16.602923 [info ] [Thread-1 (]: 14 of 14 OK created sql table model main.kpi_efficiency_score .................. [[32mOK[0m in 0.03s]
+[0m14:33:16.603502 [debug] [Thread-1 (]: Finished running node model.npc_benchmark.kpi_efficiency_score
+[0m14:33:16.604707 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:33:16.605004 [debug] [MainThread]: On master: BEGIN
+[0m14:33:16.605272 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m14:33:16.605793 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m14:33:16.606088 [debug] [MainThread]: On master: COMMIT
+[0m14:33:16.606368 [debug] [MainThread]: Using duckdb connection "master"
+[0m14:33:16.606635 [debug] [MainThread]: On master: COMMIT
+[0m14:33:16.607223 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m14:33:16.607739 [debug] [MainThread]: On master: Close
+[0m14:33:16.608179 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m14:33:16.608510 [debug] [MainThread]: Connection 'create_benchmark_main' was properly closed.
+[0m14:33:16.608887 [debug] [MainThread]: Connection 'list_benchmark_main' was properly closed.
+[0m14:33:16.609150 [debug] [MainThread]: Connection 'model.npc_benchmark.kpi_wasted_moves' was properly closed.
+[0m14:33:16.609401 [debug] [MainThread]: Connection 'model.npc_benchmark.kpi_efficiency_score' was properly closed.
+[0m14:33:16.609702 [debug] [MainThread]: Connection 'model.npc_benchmark.kpi_tokens_per_decision' was properly closed.
+[0m14:33:16.610077 [debug] [MainThread]: Connection 'model.npc_benchmark.kpi_tokens_used_per_run' was properly closed.
+[0m14:33:16.610640 [info ] [MainThread]: 
+[0m14:33:16.611133 [info ] [MainThread]: Finished running 12 table models, 2 view models in 0 hours 0 minutes and 0.65 seconds (0.65s).
+[0m14:33:16.615245 [debug] [MainThread]: Command end result
+[0m14:33:16.673138 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\lukas\Documents\GitHub\etl\npc_benchmark\target\manifest.json
+[0m14:33:16.675879 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\lukas\Documents\GitHub\etl\npc_benchmark\target\semantic_manifest.json
+[0m14:33:16.682941 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\lukas\Documents\GitHub\etl\npc_benchmark\target\run_results.json
+[0m14:33:16.683375 [info ] [MainThread]: 
+[0m14:33:16.683775 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m14:33:16.684116 [info ] [MainThread]: 
+[0m14:33:16.684475 [info ] [MainThread]: Done. PASS=14 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=14
+[0m14:33:16.685483 [debug] [MainThread]: Command `-c run` succeeded at 14:33:16.685354 after 3.24 seconds
+[0m14:33:16.685844 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57D705E50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57B358B90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D57DB27290>]}
+[0m14:33:16.686215 [debug] [MainThread]: Flushing usage events
+[0m14:33:17.554539 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m16:31:17.279456 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E68ECAD940>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E68B8774D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E68FE6BD90>]}
+
+
+============================== 16:31:17.283370 | 014ec207-0121-470d-80bf-847184509509 ==============================
+[0m16:31:17.283370 [info ] [MainThread]: Running with dbt=1.11.12
+[0m16:31:17.283982 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'debug': 'False', 'fail_fast': 'False', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': '.', 'invocation_command': 'dbt ', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'C:\\Users\\lukas\\Documents\\GitHub\\etl\\npc_benchmark\\logs'}
+[0m16:31:17.538179 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E68F195220>]}
+[0m16:31:17.604994 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E68FE97BD0>]}
+[0m16:31:17.607876 [info ] [MainThread]: Registered adapter: duckdb=1.10.1
+[0m16:31:17.934257 [debug] [MainThread]: checksum: f368f5348cf42803b94ef7fb8257ecf3bf9a9a16dd9c8c51fe5172f2dbeb457f, vars: {}, profile: , target: , version: 1.11.12
+[0m16:31:18.037509 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m16:31:18.037986 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E690F72A50>]}
+[0m16:31:19.497486 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E68FE7AC60>]}
+[0m16:31:19.582788 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\lukas\Documents\GitHub\etl\npc_benchmark\target\manifest.json
+[0m16:31:19.585596 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\lukas\Documents\GitHub\etl\npc_benchmark\target\semantic_manifest.json
+[0m16:31:19.602625 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E6916D73F0>]}
+[0m16:31:19.603357 [info ] [MainThread]: Found 14 models, 3 data tests, 485 macros
+[0m16:31:19.603957 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E691536EA0>]}
+[0m16:31:19.607076 [info ] [MainThread]: 
+[0m16:31:19.607786 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m16:31:19.608373 [info ] [MainThread]: 
+[0m16:31:19.609216 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m16:31:19.617656 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_benchmark'
+[0m16:31:19.734815 [debug] [ThreadPool]: Using duckdb connection "list_benchmark"
+[0m16:31:19.735248 [debug] [ThreadPool]: On list_benchmark: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "list_benchmark"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"benchmark"'
+    
+  
+  
+[0m16:31:19.735543 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:31:19.757101 [debug] [ThreadPool]: SQL status: OK in 0.021 seconds
+[0m16:31:19.758993 [debug] [ThreadPool]: On list_benchmark: Close
+[0m16:31:19.759923 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_benchmark, now create_benchmark_main)
+[0m16:31:19.760408 [debug] [ThreadPool]: Creating schema "database: "benchmark"
+schema: "main"
+"
+[0m16:31:19.765995 [debug] [ThreadPool]: Using duckdb connection "create_benchmark_main"
+[0m16:31:19.766344 [debug] [ThreadPool]: On create_benchmark_main: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "create_benchmark_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='benchmark'
+        and type='sqlite'
+    
+  
+[0m16:31:19.766620 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m16:31:19.767579 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m16:31:19.768811 [debug] [ThreadPool]: Using duckdb connection "create_benchmark_main"
+[0m16:31:19.769092 [debug] [ThreadPool]: On create_benchmark_main: BEGIN
+[0m16:31:19.769786 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m16:31:19.770097 [debug] [ThreadPool]: Using duckdb connection "create_benchmark_main"
+[0m16:31:19.770372 [debug] [ThreadPool]: On create_benchmark_main: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "create_benchmark_main"} */
+
+    
+    
+        create schema if not exists "benchmark"."main"
+    
+[0m16:31:19.770869 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m16:31:19.771638 [debug] [ThreadPool]: On create_benchmark_main: COMMIT
+[0m16:31:19.771925 [debug] [ThreadPool]: Using duckdb connection "create_benchmark_main"
+[0m16:31:19.772190 [debug] [ThreadPool]: On create_benchmark_main: COMMIT
+[0m16:31:19.772688 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m16:31:19.773013 [debug] [ThreadPool]: On create_benchmark_main: Close
+[0m16:31:19.775758 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_benchmark_main'
+[0m16:31:19.781221 [debug] [ThreadPool]: Using duckdb connection "list_benchmark_main"
+[0m16:31:19.781576 [debug] [ThreadPool]: On list_benchmark_main: BEGIN
+[0m16:31:19.781844 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m16:31:19.782428 [debug] [ThreadPool]: SQL status: OK in 0.001 seconds
+[0m16:31:19.782830 [debug] [ThreadPool]: Using duckdb connection "list_benchmark_main"
+[0m16:31:19.783105 [debug] [ThreadPool]: On list_benchmark_main: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "connection_name": "list_benchmark_main"} */
+select
+      'benchmark' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'benchmark'
+  
+[0m16:31:19.786833 [debug] [ThreadPool]: SQL status: OK in 0.003 seconds
+[0m16:31:19.788156 [debug] [ThreadPool]: On list_benchmark_main: ROLLBACK
+[0m16:31:19.789204 [debug] [ThreadPool]: Failed to rollback 'list_benchmark_main'
+[0m16:31:19.789495 [debug] [ThreadPool]: On list_benchmark_main: Close
+[0m16:31:19.794023 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E691777DD0>]}
+[0m16:31:19.794491 [debug] [MainThread]: Using duckdb connection "master"
+[0m16:31:19.794778 [debug] [MainThread]: On master: BEGIN
+[0m16:31:19.795038 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m16:31:19.795656 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m16:31:19.795941 [debug] [MainThread]: On master: COMMIT
+[0m16:31:19.796216 [debug] [MainThread]: Using duckdb connection "master"
+[0m16:31:19.796522 [debug] [MainThread]: On master: COMMIT
+[0m16:31:19.796999 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m16:31:19.797294 [debug] [MainThread]: On master: Close
+[0m16:31:19.800994 [debug] [Thread-1 (]: Began running node model.npc_benchmark.stg_runs
+[0m16:31:19.801507 [info ] [Thread-1 (]: 1 of 14 START sql view model main.stg_runs ..................................... [RUN]
+[0m16:31:19.802062 [debug] [Thread-1 (]: Acquiring new duckdb connection 'model.npc_benchmark.stg_runs'
+[0m16:31:19.802426 [debug] [Thread-2 (]: Began running node model.npc_benchmark.stg_steps
+[0m16:31:19.802758 [debug] [Thread-1 (]: Began compiling node model.npc_benchmark.stg_runs
+[0m16:31:19.803197 [info ] [Thread-2 (]: 2 of 14 START sql view model main.stg_steps .................................... [RUN]
+[0m16:31:19.810669 [debug] [Thread-1 (]: Writing injected SQL for node "model.npc_benchmark.stg_runs"
+[0m16:31:19.811223 [debug] [Thread-2 (]: Acquiring new duckdb connection 'model.npc_benchmark.stg_steps'
+[0m16:31:19.811689 [debug] [Thread-2 (]: Began compiling node model.npc_benchmark.stg_steps
+[0m16:31:19.814280 [debug] [Thread-2 (]: Writing injected SQL for node "model.npc_benchmark.stg_steps"
+[0m16:31:19.815246 [debug] [Thread-1 (]: Began executing node model.npc_benchmark.stg_runs
+[0m16:31:19.845018 [debug] [Thread-1 (]: Writing runtime sql for node "model.npc_benchmark.stg_runs"
+[0m16:31:19.845635 [debug] [Thread-2 (]: Began executing node model.npc_benchmark.stg_steps
+[0m16:31:19.848681 [debug] [Thread-2 (]: Writing runtime sql for node "model.npc_benchmark.stg_steps"
+[0m16:31:19.849957 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.stg_steps"
+[0m16:31:19.850352 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: BEGIN
+[0m16:31:19.850677 [debug] [Thread-2 (]: Opening a new connection, currently in state init
+[0m16:31:19.851385 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.stg_runs"
+[0m16:31:19.851739 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: BEGIN
+[0m16:31:19.852060 [debug] [Thread-1 (]: Opening a new connection, currently in state init
+[0m16:31:19.852570 [debug] [Thread-2 (]: SQL status: OK in 0.002 seconds
+[0m16:31:19.852919 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.stg_steps"
+[0m16:31:19.853251 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_steps"} */
+
+  
+  create view "benchmark"."main"."stg_steps__dbt_tmp" as (
+    select *
+from read_parquet('../data/silver/steps.parquet')
+  );
+
+[0m16:31:19.853723 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m16:31:19.854074 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.stg_runs"
+[0m16:31:19.854426 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_runs"} */
+
+  
+  create view "benchmark"."main"."stg_runs__dbt_tmp" as (
+    select *
+from read_parquet('../data/silver/runs.parquet')
+  );
+
+[0m16:31:19.854922 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m16:31:19.860877 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.stg_steps"
+[0m16:31:19.861303 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_steps"} */
+alter view "benchmark"."main"."stg_steps" rename to "stg_steps__dbt_backup"
+[0m16:31:19.861801 [debug] [Thread-1 (]: SQL status: OK in 0.007 seconds
+[0m16:31:19.865156 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.stg_runs"
+[0m16:31:19.865601 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_runs"} */
+alter view "benchmark"."main"."stg_runs" rename to "stg_runs__dbt_backup"
+[0m16:31:19.865989 [debug] [Thread-2 (]: SQL status: OK in 0.004 seconds
+[0m16:31:19.868439 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.stg_steps"
+[0m16:31:19.868942 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_steps"} */
+alter view "benchmark"."main"."stg_steps__dbt_tmp" rename to "stg_steps"
+[0m16:31:19.869401 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m16:31:19.871747 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.stg_runs"
+[0m16:31:19.872101 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_runs"} */
+alter view "benchmark"."main"."stg_runs__dbt_tmp" rename to "stg_runs"
+[0m16:31:19.872696 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m16:31:19.887491 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: COMMIT
+[0m16:31:19.887909 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.stg_steps"
+[0m16:31:19.888287 [debug] [Thread-1 (]: SQL status: OK in 0.016 seconds
+[0m16:31:19.888656 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: COMMIT
+[0m16:31:19.890077 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: COMMIT
+[0m16:31:19.890930 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.stg_runs"
+[0m16:31:19.891646 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: COMMIT
+[0m16:31:19.893081 [debug] [Thread-2 (]: SQL status: OK in 0.002 seconds
+[0m16:31:19.898272 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.stg_steps"
+[0m16:31:19.898687 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_steps"} */
+
+      drop view if exists "benchmark"."main"."stg_steps__dbt_backup" cascade
+    
+[0m16:31:19.899233 [debug] [Thread-1 (]: SQL status: OK in 0.007 seconds
+[0m16:31:19.901163 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.stg_runs"
+[0m16:31:19.901514 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.stg_runs"} */
+
+      drop view if exists "benchmark"."main"."stg_runs__dbt_backup" cascade
+    
+[0m16:31:19.902895 [debug] [Thread-2 (]: SQL status: OK in 0.004 seconds
+[0m16:31:19.905081 [debug] [Thread-2 (]: On model.npc_benchmark.stg_steps: Close
+[0m16:31:19.906455 [debug] [Thread-1 (]: SQL status: OK in 0.005 seconds
+[0m16:31:19.908510 [debug] [Thread-1 (]: On model.npc_benchmark.stg_runs: Close
+[0m16:31:19.909655 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E6918028E0>]}
+[0m16:31:19.910601 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E68F11B390>]}
+[0m16:31:19.910273 [info ] [Thread-2 (]: 2 of 14 OK created sql view model main.stg_steps ............................... [[32mOK[0m in 0.09s]
+[0m16:31:19.911772 [debug] [Thread-2 (]: Finished running node model.npc_benchmark.stg_steps
+[0m16:31:19.911146 [info ] [Thread-1 (]: 1 of 14 OK created sql view model main.stg_runs ................................ [[32mOK[0m in 0.11s]
+[0m16:31:19.912948 [debug] [Thread-1 (]: Finished running node model.npc_benchmark.stg_runs
+[0m16:31:19.913840 [debug] [Thread-3 (]: Began running node model.npc_benchmark.kpi_coin_priority_switches
+[0m16:31:19.914236 [debug] [Thread-4 (]: Began running node model.npc_benchmark.kpi_enemy_contacts
+[0m16:31:19.914634 [debug] [Thread-2 (]: Began running node model.npc_benchmark.kpi_invalid_action_rate
+[0m16:31:19.914960 [debug] [Thread-1 (]: Began running node model.npc_benchmark.kpi_latency_ms_per_decision
+[0m16:31:19.915403 [info ] [Thread-3 (]: 3 of 14 START sql table model main.kpi_coin_priority_switches .................. [RUN]
+[0m16:31:19.915901 [info ] [Thread-4 (]: 4 of 14 START sql table model main.kpi_enemy_contacts .......................... [RUN]
+[0m16:31:19.916370 [info ] [Thread-2 (]: 5 of 14 START sql table model main.kpi_invalid_action_rate ..................... [RUN]
+[0m16:31:19.916835 [info ] [Thread-1 (]: 6 of 14 START sql table model main.kpi_latency_ms_per_decision ................. [RUN]
+[0m16:31:19.917349 [debug] [Thread-3 (]: Acquiring new duckdb connection 'model.npc_benchmark.kpi_coin_priority_switches'
+[0m16:31:19.917776 [debug] [Thread-4 (]: Acquiring new duckdb connection 'model.npc_benchmark.kpi_enemy_contacts'
+[0m16:31:19.918160 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.stg_steps, now model.npc_benchmark.kpi_invalid_action_rate)
+[0m16:31:19.918541 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.stg_runs, now model.npc_benchmark.kpi_latency_ms_per_decision)
+[0m16:31:19.918952 [debug] [Thread-3 (]: Began compiling node model.npc_benchmark.kpi_coin_priority_switches
+[0m16:31:19.919392 [debug] [Thread-4 (]: Began compiling node model.npc_benchmark.kpi_enemy_contacts
+[0m16:31:19.919753 [debug] [Thread-2 (]: Began compiling node model.npc_benchmark.kpi_invalid_action_rate
+[0m16:31:19.920103 [debug] [Thread-1 (]: Began compiling node model.npc_benchmark.kpi_latency_ms_per_decision
+[0m16:31:19.922927 [debug] [Thread-3 (]: Writing injected SQL for node "model.npc_benchmark.kpi_coin_priority_switches"
+[0m16:31:19.926196 [debug] [Thread-4 (]: Writing injected SQL for node "model.npc_benchmark.kpi_enemy_contacts"
+[0m16:31:19.929760 [debug] [Thread-2 (]: Writing injected SQL for node "model.npc_benchmark.kpi_invalid_action_rate"
+[0m16:31:19.932135 [debug] [Thread-1 (]: Writing injected SQL for node "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m16:31:19.933444 [debug] [Thread-3 (]: Began executing node model.npc_benchmark.kpi_coin_priority_switches
+[0m16:31:19.954410 [debug] [Thread-3 (]: Writing runtime sql for node "model.npc_benchmark.kpi_coin_priority_switches"
+[0m16:31:19.955279 [debug] [Thread-2 (]: Began executing node model.npc_benchmark.kpi_invalid_action_rate
+[0m16:31:19.955670 [debug] [Thread-4 (]: Began executing node model.npc_benchmark.kpi_enemy_contacts
+[0m16:31:19.956130 [debug] [Thread-1 (]: Began executing node model.npc_benchmark.kpi_latency_ms_per_decision
+[0m16:31:19.960444 [debug] [Thread-2 (]: Writing runtime sql for node "model.npc_benchmark.kpi_invalid_action_rate"
+[0m16:31:19.963626 [debug] [Thread-4 (]: Writing runtime sql for node "model.npc_benchmark.kpi_enemy_contacts"
+[0m16:31:19.964094 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_coin_priority_switches"
+[0m16:31:19.966678 [debug] [Thread-1 (]: Writing runtime sql for node "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m16:31:19.967354 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_coin_priority_switches: BEGIN
+[0m16:31:19.967835 [debug] [Thread-3 (]: Opening a new connection, currently in state init
+[0m16:31:19.968551 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m16:31:19.968993 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_invalid_action_rate"
+[0m16:31:19.969410 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_coin_priority_switches"
+[0m16:31:19.969857 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_enemy_contacts"
+[0m16:31:19.970186 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_invalid_action_rate: BEGIN
+[0m16:31:19.970650 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_coin_priority_switches: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_coin_priority_switches"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_coin_priority_switches__dbt_tmp"
+  
+    as (
+      with ordered as (
+    select
+        run_id,
+        step_index,
+        position_row,
+        position_col,
+        target_row,
+        target_col,
+        lag(target_row) over (partition by run_id order by step_index) as prev_target_row,
+        lag(target_col) over (partition by run_id order by step_index) as prev_target_col
+    from "benchmark"."main"."stg_steps"
+),
+
+flagged as (
+    select
+        run_id,
+        case
+            when prev_target_row is not null
+                 and (target_row is distinct from prev_target_row
+                      or target_col is distinct from prev_target_col)
+                 and not (position_row = prev_target_row and position_col = prev_target_col)
+                then 1
+            else 0
+        end as is_switch
+    from ordered
+),
+
+run_level as (
+    select run_id, sum(is_switch) as switches_run
+    from flagged
+    group by run_id
+)
+
+select
+    r.config_niveau_algo,
+    r.config_nom_modele,
+    r.config_format_prompt,
+    avg(rl.switches_run) as coin_priority_switches
+from "benchmark"."main"."stg_runs" r
+join run_level rl using (run_id)
+group by 1, 2, 3
+    );
+  
+  
+[0m16:31:19.971037 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_enemy_contacts: BEGIN
+[0m16:31:19.971380 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m16:31:19.971709 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m16:31:19.972309 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m16:31:19.972763 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: BEGIN
+[0m16:31:19.973741 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:31:19.974734 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m16:31:19.975460 [debug] [Thread-4 (]: SQL status: OK in 0.003 seconds
+[0m16:31:19.976032 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_invalid_action_rate"
+[0m16:31:19.976684 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m16:31:19.977080 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_enemy_contacts"
+[0m16:31:19.977655 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_invalid_action_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_invalid_action_rate"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_invalid_action_rate__dbt_tmp"
+  
+    as (
+      select
+    r.config_niveau_algo,
+    r.config_nom_modele,
+    r.config_format_prompt,
+    avg(case when not s.action_valid then 1.0 else 0.0 end) as invalid_action_rate
+from "benchmark"."main"."stg_steps" s
+join "benchmark"."main"."stg_runs" r using (run_id)
+group by 1, 2, 3
+    );
+  
+  
+[0m16:31:19.978163 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m16:31:19.978562 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_enemy_contacts: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_enemy_contacts"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_enemy_contacts__dbt_tmp"
+  
+    as (
+      with run_contacts as (
+    select run_id, sum(case when contact_ennemi then 1 else 0 end) as contacts_run
+    from "benchmark"."main"."stg_steps"
+    group by run_id
+)
+
+select
+    r.config_niveau_algo,
+    r.config_nom_modele,
+    r.config_format_prompt,
+    avg(rc.contacts_run) as enemy_contacts
+from "benchmark"."main"."stg_runs" r
+join run_contacts rc using (run_id)
+group by 1, 2, 3
+    );
+  
+  
+[0m16:31:19.979588 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_latency_ms_per_decision"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_latency_ms_per_decision__dbt_tmp"
+  
+    as (
+      select
+    r.config_niveau_algo,
+    r.config_nom_modele,
+    r.config_format_prompt,
+    avg(s.latence_ms) as latency_ms_per_decision
+from "benchmark"."main"."stg_steps" s
+join "benchmark"."main"."stg_runs" r using (run_id)
+group by 1, 2, 3
+    );
+  
+  
+[0m16:31:19.981899 [debug] [Thread-3 (]: SQL status: OK in 0.010 seconds
+[0m16:31:19.988202 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_coin_priority_switches"
+[0m16:31:19.988623 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_coin_priority_switches: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_coin_priority_switches"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_coin_priority_switches'
+  
+[0m16:31:19.989288 [debug] [Thread-1 (]: SQL status: OK in 0.008 seconds
+[0m16:31:19.990626 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m16:31:19.991341 [debug] [Thread-2 (]: SQL status: OK in 0.012 seconds
+[0m16:31:19.991912 [debug] [Thread-4 (]: SQL status: OK in 0.012 seconds
+[0m16:31:19.992391 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_latency_ms_per_decision"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_latency_ms_per_decision'
+  
+[0m16:31:19.993005 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m16:31:19.994056 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_invalid_action_rate"
+[0m16:31:19.994995 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_enemy_contacts"
+[0m16:31:19.996392 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_coin_priority_switches"
+[0m16:31:19.996755 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_invalid_action_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_invalid_action_rate"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_invalid_action_rate'
+  
+[0m16:31:19.997103 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m16:31:19.997442 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_enemy_contacts: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_enemy_contacts"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_enemy_contacts'
+  
+[0m16:31:19.997787 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_coin_priority_switches: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_coin_priority_switches"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_coin_priority_switches'
+  
+[0m16:31:19.999065 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m16:31:19.999574 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.000063 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_latency_ms_per_decision"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_latency_ms_per_decision'
+  
+[0m16:31:20.000400 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.000798 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.001997 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_invalid_action_rate"
+[0m16:31:20.002573 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.003596 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_enemy_contacts"
+[0m16:31:20.006403 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_coin_priority_switches"
+[0m16:31:20.007470 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_invalid_action_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_invalid_action_rate"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_invalid_action_rate'
+  
+[0m16:31:20.008296 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_enemy_contacts: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_enemy_contacts"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_enemy_contacts'
+  
+[0m16:31:20.011407 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m16:31:20.011824 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_coin_priority_switches: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_coin_priority_switches"} */
+alter table "benchmark"."main"."kpi_coin_priority_switches" rename to "kpi_coin_priority_switches__dbt_backup"
+[0m16:31:20.012839 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_latency_ms_per_decision"} */
+alter table "benchmark"."main"."kpi_latency_ms_per_decision" rename to "kpi_latency_ms_per_decision__dbt_backup"
+[0m16:31:20.013443 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.013876 [debug] [Thread-2 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.016801 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_enemy_contacts"
+[0m16:31:20.017237 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m16:31:20.021941 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_enemy_contacts: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_enemy_contacts"} */
+alter table "benchmark"."main"."kpi_enemy_contacts" rename to "kpi_enemy_contacts__dbt_backup"
+[0m16:31:20.022447 [debug] [Thread-1 (]: SQL status: OK in 0.008 seconds
+[0m16:31:20.024032 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_invalid_action_rate"
+[0m16:31:20.027176 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_coin_priority_switches"
+[0m16:31:20.030158 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m16:31:20.030596 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_invalid_action_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_invalid_action_rate"} */
+alter table "benchmark"."main"."kpi_invalid_action_rate" rename to "kpi_invalid_action_rate__dbt_backup"
+[0m16:31:20.030995 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_coin_priority_switches: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_coin_priority_switches"} */
+alter table "benchmark"."main"."kpi_coin_priority_switches__dbt_tmp" rename to "kpi_coin_priority_switches"
+[0m16:31:20.031311 [debug] [Thread-4 (]: SQL status: OK in 0.004 seconds
+[0m16:31:20.031660 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_latency_ms_per_decision"} */
+alter table "benchmark"."main"."kpi_latency_ms_per_decision__dbt_tmp" rename to "kpi_latency_ms_per_decision"
+[0m16:31:20.034620 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_enemy_contacts"
+[0m16:31:20.035118 [debug] [Thread-2 (]: SQL status: OK in 0.003 seconds
+[0m16:31:20.035619 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m16:31:20.036024 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_enemy_contacts: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_enemy_contacts"} */
+alter table "benchmark"."main"."kpi_enemy_contacts__dbt_tmp" rename to "kpi_enemy_contacts"
+[0m16:31:20.036365 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.039666 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_invalid_action_rate"
+[0m16:31:20.045409 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_coin_priority_switches: COMMIT
+[0m16:31:20.047127 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: COMMIT
+[0m16:31:20.047533 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_invalid_action_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_invalid_action_rate"} */
+alter table "benchmark"."main"."kpi_invalid_action_rate__dbt_tmp" rename to "kpi_invalid_action_rate"
+[0m16:31:20.047891 [debug] [Thread-4 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.048245 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_coin_priority_switches"
+[0m16:31:20.048944 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m16:31:20.050592 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_enemy_contacts: COMMIT
+[0m16:31:20.051047 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_coin_priority_switches: COMMIT
+[0m16:31:20.051409 [debug] [Thread-2 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.051735 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: COMMIT
+[0m16:31:20.052071 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_enemy_contacts"
+[0m16:31:20.054176 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_invalid_action_rate: COMMIT
+[0m16:31:20.054648 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.055176 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_enemy_contacts: COMMIT
+[0m16:31:20.055624 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_invalid_action_rate"
+[0m16:31:20.058409 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_coin_priority_switches"
+[0m16:31:20.059530 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m16:31:20.060057 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_invalid_action_rate: COMMIT
+[0m16:31:20.060581 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_coin_priority_switches: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_coin_priority_switches"} */
+
+      drop table if exists "benchmark"."main"."kpi_coin_priority_switches__dbt_backup" cascade
+    
+[0m16:31:20.063639 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_latency_ms_per_decision"
+[0m16:31:20.063972 [debug] [Thread-4 (]: SQL status: OK in 0.005 seconds
+[0m16:31:20.064805 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_latency_ms_per_decision"} */
+
+      drop table if exists "benchmark"."main"."kpi_latency_ms_per_decision__dbt_backup" cascade
+    
+[0m16:31:20.067506 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_enemy_contacts"
+[0m16:31:20.068211 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m16:31:20.068650 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_enemy_contacts: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_enemy_contacts"} */
+
+      drop table if exists "benchmark"."main"."kpi_enemy_contacts__dbt_backup" cascade
+    
+[0m16:31:20.068973 [debug] [Thread-2 (]: SQL status: OK in 0.005 seconds
+[0m16:31:20.070677 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_coin_priority_switches: Close
+[0m16:31:20.071307 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m16:31:20.074979 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_invalid_action_rate"
+[0m16:31:20.076321 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E691B3F850>]}
+[0m16:31:20.078582 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_latency_ms_per_decision: Close
+[0m16:31:20.079230 [debug] [Thread-4 (]: SQL status: OK in 0.007 seconds
+[0m16:31:20.079591 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_invalid_action_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_invalid_action_rate"} */
+
+      drop table if exists "benchmark"."main"."kpi_invalid_action_rate__dbt_backup" cascade
+    
+[0m16:31:20.080192 [info ] [Thread-3 (]: 3 of 14 OK created sql table model main.kpi_coin_priority_switches ............. [[32mOK[0m in 0.16s]
+[0m16:31:20.080946 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E691CBEF20>]}
+[0m16:31:20.082086 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_enemy_contacts: Close
+[0m16:31:20.082858 [debug] [Thread-3 (]: Finished running node model.npc_benchmark.kpi_coin_priority_switches
+[0m16:31:20.083464 [info ] [Thread-1 (]: 6 of 14 OK created sql table model main.kpi_latency_ms_per_decision ............ [[32mOK[0m in 0.16s]
+[0m16:31:20.083993 [debug] [Thread-3 (]: Began running node model.npc_benchmark.kpi_points_lost_to_penalty
+[0m16:31:20.084570 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E6914C2870>]}
+[0m16:31:20.085190 [debug] [Thread-1 (]: Finished running node model.npc_benchmark.kpi_latency_ms_per_decision
+[0m16:31:20.085675 [info ] [Thread-3 (]: 7 of 14 START sql table model main.kpi_points_lost_to_penalty .................. [RUN]
+[0m16:31:20.086950 [debug] [Thread-2 (]: SQL status: OK in 0.004 seconds
+[0m16:31:20.087412 [debug] [Thread-1 (]: Began running node model.npc_benchmark.kpi_rolling_avg_distance
+[0m16:31:20.086253 [info ] [Thread-4 (]: 4 of 14 OK created sql table model main.kpi_enemy_contacts ..................... [[32mOK[0m in 0.17s]
+[0m16:31:20.087900 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_coin_priority_switches, now model.npc_benchmark.kpi_points_lost_to_penalty)
+[0m16:31:20.089164 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_invalid_action_rate: Close
+[0m16:31:20.089838 [info ] [Thread-1 (]: 8 of 14 START sql table model main.kpi_rolling_avg_distance .................... [RUN]
+[0m16:31:20.090936 [debug] [Thread-4 (]: Finished running node model.npc_benchmark.kpi_enemy_contacts
+[0m16:31:20.091461 [debug] [Thread-3 (]: Began compiling node model.npc_benchmark.kpi_points_lost_to_penalty
+[0m16:31:20.092231 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E6914C2A50>]}
+[0m16:31:20.092884 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_latency_ms_per_decision, now model.npc_benchmark.kpi_rolling_avg_distance)
+[0m16:31:20.093571 [debug] [Thread-4 (]: Began running node model.npc_benchmark.kpi_steps_per_coin
+[0m16:31:20.095931 [debug] [Thread-3 (]: Writing injected SQL for node "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m16:31:20.097004 [debug] [Thread-1 (]: Began compiling node model.npc_benchmark.kpi_rolling_avg_distance
+[0m16:31:20.096614 [info ] [Thread-2 (]: 5 of 14 OK created sql table model main.kpi_invalid_action_rate ................ [[32mOK[0m in 0.17s]
+[0m16:31:20.097534 [info ] [Thread-4 (]: 9 of 14 START sql table model main.kpi_steps_per_coin .......................... [RUN]
+[0m16:31:20.100657 [debug] [Thread-1 (]: Writing injected SQL for node "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m16:31:20.101315 [debug] [Thread-2 (]: Finished running node model.npc_benchmark.kpi_invalid_action_rate
+[0m16:31:20.101830 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_enemy_contacts, now model.npc_benchmark.kpi_steps_per_coin)
+[0m16:31:20.102598 [debug] [Thread-2 (]: Began running node model.npc_benchmark.kpi_success_rate
+[0m16:31:20.103208 [debug] [Thread-4 (]: Began compiling node model.npc_benchmark.kpi_steps_per_coin
+[0m16:31:20.104182 [debug] [Thread-3 (]: Began executing node model.npc_benchmark.kpi_points_lost_to_penalty
+[0m16:31:20.103823 [info ] [Thread-2 (]: 10 of 14 START sql table model main.kpi_success_rate ........................... [RUN]
+[0m16:31:20.108545 [debug] [Thread-4 (]: Writing injected SQL for node "model.npc_benchmark.kpi_steps_per_coin"
+[0m16:31:20.112254 [debug] [Thread-3 (]: Writing runtime sql for node "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m16:31:20.112812 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_invalid_action_rate, now model.npc_benchmark.kpi_success_rate)
+[0m16:31:20.113245 [debug] [Thread-1 (]: Began executing node model.npc_benchmark.kpi_rolling_avg_distance
+[0m16:31:20.113753 [debug] [Thread-2 (]: Began compiling node model.npc_benchmark.kpi_success_rate
+[0m16:31:20.116603 [debug] [Thread-1 (]: Writing runtime sql for node "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m16:31:20.118929 [debug] [Thread-2 (]: Writing injected SQL for node "model.npc_benchmark.kpi_success_rate"
+[0m16:31:20.119556 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m16:31:20.119900 [debug] [Thread-4 (]: Began executing node model.npc_benchmark.kpi_steps_per_coin
+[0m16:31:20.120388 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: BEGIN
+[0m16:31:20.123708 [debug] [Thread-4 (]: Writing runtime sql for node "model.npc_benchmark.kpi_steps_per_coin"
+[0m16:31:20.124498 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m16:31:20.125565 [debug] [Thread-2 (]: Began executing node model.npc_benchmark.kpi_success_rate
+[0m16:31:20.128890 [debug] [Thread-2 (]: Writing runtime sql for node "model.npc_benchmark.kpi_success_rate"
+[0m16:31:20.129507 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m16:31:20.129874 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: BEGIN
+[0m16:31:20.130203 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:31:20.130682 [debug] [Thread-3 (]: SQL status: OK in 0.006 seconds
+[0m16:31:20.131033 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m16:31:20.131374 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_points_lost_to_penalty"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_points_lost_to_penalty__dbt_tmp"
+  
+    as (
+      select
+    config_niveau_algo,
+    config_nom_modele,
+    config_format_prompt,
+    avg(points_perdus_penalites) as points_lost_to_penalty,
+    count(*) as nb_runs
+from "benchmark"."main"."stg_runs"
+group by 1, 2, 3
+    );
+  
+  
+[0m16:31:20.131910 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.132349 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m16:31:20.132846 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_steps_per_coin"
+[0m16:31:20.133279 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_rolling_avg_distance"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_rolling_avg_distance__dbt_tmp"
+  
+    as (
+      with rolling as (
+    select
+        r.config_niveau_algo,
+        r.config_nom_modele,
+        r.config_format_prompt,
+        avg(s.distance_cible_manhattan) over (
+            partition by s.run_id order by s.step_index
+            rows between 2 preceding and current row
+        ) as rolling_distance
+    from "benchmark"."main"."stg_steps" s
+    join "benchmark"."main"."stg_runs" r using (run_id)
+    where s.distance_cible_manhattan is not null
+)
+
+select
+    config_niveau_algo,
+    config_nom_modele,
+    config_format_prompt,
+    avg(rolling_distance) as rolling_avg_distance
+from rolling
+group by 1, 2, 3
+    );
+  
+  
+[0m16:31:20.133829 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_steps_per_coin: BEGIN
+[0m16:31:20.134808 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m16:31:20.135381 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_success_rate"
+[0m16:31:20.135747 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_success_rate: BEGIN
+[0m16:31:20.136089 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m16:31:20.136408 [debug] [Thread-4 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.136867 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m16:31:20.137969 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m16:31:20.138451 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_steps_per_coin"
+[0m16:31:20.139155 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_points_lost_to_penalty"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_points_lost_to_penalty'
+  
+[0m16:31:20.139826 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_steps_per_coin: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_steps_per_coin"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_steps_per_coin__dbt_tmp"
+  
+    as (
+      with run_steps as (
+    select run_id, count(*) as nb_steps
+    from "benchmark"."main"."stg_steps"
+    group by run_id
+),
+
+run_level as (
+    select
+        r.config_niveau_algo,
+        r.config_nom_modele,
+        r.config_format_prompt,
+        r.run_id,
+        case when r.nb_pieces_ramassees > 0
+            then rs.nb_steps::double / r.nb_pieces_ramassees
+        end as steps_per_coin_run
+    from "benchmark"."main"."stg_runs" r
+    join run_steps rs using (run_id)
+)
+
+select
+    config_niveau_algo,
+    config_nom_modele,
+    config_format_prompt,
+    avg(steps_per_coin_run) as steps_per_coin,
+    count(*) as nb_runs
+from run_level
+group by 1, 2, 3
+    );
+  
+  
+[0m16:31:20.140463 [debug] [Thread-2 (]: SQL status: OK in 0.004 seconds
+[0m16:31:20.140952 [debug] [Thread-1 (]: SQL status: OK in 0.007 seconds
+[0m16:31:20.142211 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_success_rate"
+[0m16:31:20.142804 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.143783 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m16:31:20.144172 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_success_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_success_rate"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_success_rate__dbt_tmp"
+  
+    as (
+      select
+    config_niveau_algo,
+    config_nom_modele,
+    config_format_prompt,
+    avg(case when nb_pieces_ramassees = nb_pieces_totales then 1.0 else 0.0 end) as success_rate,
+    count(*) as nb_runs
+from "benchmark"."main"."stg_runs"
+group by 1, 2, 3
+    );
+  
+  
+[0m16:31:20.145689 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m16:31:20.146283 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_rolling_avg_distance"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_rolling_avg_distance'
+  
+[0m16:31:20.146921 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_points_lost_to_penalty"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_points_lost_to_penalty'
+  
+[0m16:31:20.147720 [debug] [Thread-4 (]: SQL status: OK in 0.006 seconds
+[0m16:31:20.148746 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_steps_per_coin"
+[0m16:31:20.149225 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.149683 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.150043 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_steps_per_coin: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_steps_per_coin"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_steps_per_coin'
+  
+[0m16:31:20.150398 [debug] [Thread-2 (]: SQL status: OK in 0.004 seconds
+[0m16:31:20.151614 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m16:31:20.154742 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m16:31:20.155900 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_success_rate"
+[0m16:31:20.156288 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_rolling_avg_distance"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_rolling_avg_distance'
+  
+[0m16:31:20.156729 [debug] [Thread-4 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.157244 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_points_lost_to_penalty"} */
+alter table "benchmark"."main"."kpi_points_lost_to_penalty" rename to "kpi_points_lost_to_penalty__dbt_backup"
+[0m16:31:20.157842 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_success_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_success_rate"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_success_rate'
+  
+[0m16:31:20.159651 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_steps_per_coin"
+[0m16:31:20.160309 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_steps_per_coin: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_steps_per_coin"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_steps_per_coin'
+  
+[0m16:31:20.160682 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.161024 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.161515 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.164443 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m16:31:20.164832 [debug] [Thread-4 (]: SQL status: OK in 0.003 seconds
+[0m16:31:20.165981 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_success_rate"
+[0m16:31:20.168256 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m16:31:20.168622 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_rolling_avg_distance"} */
+alter table "benchmark"."main"."kpi_rolling_avg_distance" rename to "kpi_rolling_avg_distance__dbt_backup"
+[0m16:31:20.172146 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_steps_per_coin"
+[0m16:31:20.172530 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_success_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_success_rate"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_success_rate'
+  
+[0m16:31:20.172912 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_points_lost_to_penalty"} */
+alter table "benchmark"."main"."kpi_points_lost_to_penalty__dbt_tmp" rename to "kpi_points_lost_to_penalty"
+[0m16:31:20.173684 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_steps_per_coin: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_steps_per_coin"} */
+alter table "benchmark"."main"."kpi_steps_per_coin" rename to "kpi_steps_per_coin__dbt_backup"
+[0m16:31:20.174624 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.175721 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.178635 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m16:31:20.179006 [debug] [Thread-4 (]: SQL status: OK in 0.003 seconds
+[0m16:31:20.179372 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m16:31:20.182266 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_success_rate"
+[0m16:31:20.182716 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_rolling_avg_distance"} */
+alter table "benchmark"."main"."kpi_rolling_avg_distance__dbt_tmp" rename to "kpi_rolling_avg_distance"
+[0m16:31:20.185147 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_steps_per_coin"
+[0m16:31:20.186600 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: COMMIT
+[0m16:31:20.186970 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_success_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_success_rate"} */
+alter table "benchmark"."main"."kpi_success_rate" rename to "kpi_success_rate__dbt_backup"
+[0m16:31:20.187503 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_steps_per_coin: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_steps_per_coin"} */
+alter table "benchmark"."main"."kpi_steps_per_coin__dbt_tmp" rename to "kpi_steps_per_coin"
+[0m16:31:20.187883 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m16:31:20.188710 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.189269 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.189639 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: COMMIT
+[0m16:31:20.191633 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: COMMIT
+[0m16:31:20.192351 [debug] [Thread-4 (]: SQL status: OK in 0.003 seconds
+[0m16:31:20.196043 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_success_rate"
+[0m16:31:20.196769 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m16:31:20.198437 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_steps_per_coin: COMMIT
+[0m16:31:20.198916 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.199245 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_success_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_success_rate"} */
+alter table "benchmark"."main"."kpi_success_rate__dbt_tmp" rename to "kpi_success_rate"
+[0m16:31:20.199594 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: COMMIT
+[0m16:31:20.199938 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_steps_per_coin"
+[0m16:31:20.201999 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_points_lost_to_penalty"
+[0m16:31:20.202716 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_steps_per_coin: COMMIT
+[0m16:31:20.203243 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_points_lost_to_penalty"} */
+
+      drop table if exists "benchmark"."main"."kpi_points_lost_to_penalty__dbt_backup" cascade
+    
+[0m16:31:20.203679 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.204202 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.205888 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_success_rate: COMMIT
+[0m16:31:20.206343 [debug] [Thread-4 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.210218 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_rolling_avg_distance"
+[0m16:31:20.210660 [debug] [Thread-3 (]: SQL status: OK in 0.006 seconds
+[0m16:31:20.211025 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_success_rate"
+[0m16:31:20.213493 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_steps_per_coin"
+[0m16:31:20.213958 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_rolling_avg_distance"} */
+
+      drop table if exists "benchmark"."main"."kpi_rolling_avg_distance__dbt_backup" cascade
+    
+[0m16:31:20.215596 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_points_lost_to_penalty: Close
+[0m16:31:20.216061 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_success_rate: COMMIT
+[0m16:31:20.216432 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_steps_per_coin: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_steps_per_coin"} */
+
+      drop table if exists "benchmark"."main"."kpi_steps_per_coin__dbt_backup" cascade
+    
+[0m16:31:20.217121 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E6913B7A70>]}
+[0m16:31:20.218051 [info ] [Thread-3 (]: 7 of 14 OK created sql table model main.kpi_points_lost_to_penalty ............. [[32mOK[0m in 0.13s]
+[0m16:31:20.218622 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.219188 [debug] [Thread-3 (]: Finished running node model.npc_benchmark.kpi_points_lost_to_penalty
+[0m16:31:20.220633 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_rolling_avg_distance: Close
+[0m16:31:20.221043 [debug] [Thread-2 (]: SQL status: OK in 0.004 seconds
+[0m16:31:20.221435 [debug] [Thread-3 (]: Began running node model.npc_benchmark.kpi_tokens_per_decision
+[0m16:31:20.221776 [debug] [Thread-4 (]: SQL status: OK in 0.004 seconds
+[0m16:31:20.222340 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E6918E3F50>]}
+[0m16:31:20.230992 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_success_rate"
+[0m16:31:20.231513 [info ] [Thread-3 (]: 11 of 14 START sql table model main.kpi_tokens_per_decision .................... [RUN]
+[0m16:31:20.232970 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_steps_per_coin: Close
+[0m16:31:20.233783 [info ] [Thread-1 (]: 8 of 14 OK created sql table model main.kpi_rolling_avg_distance ............... [[32mOK[0m in 0.13s]
+[0m16:31:20.234420 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_success_rate: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_success_rate"} */
+
+      drop table if exists "benchmark"."main"."kpi_success_rate__dbt_backup" cascade
+    
+[0m16:31:20.234841 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_points_lost_to_penalty, now model.npc_benchmark.kpi_tokens_per_decision)
+[0m16:31:20.235369 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E691820650>]}
+[0m16:31:20.235870 [debug] [Thread-1 (]: Finished running node model.npc_benchmark.kpi_rolling_avg_distance
+[0m16:31:20.236386 [debug] [Thread-3 (]: Began compiling node model.npc_benchmark.kpi_tokens_per_decision
+[0m16:31:20.237025 [info ] [Thread-4 (]: 9 of 14 OK created sql table model main.kpi_steps_per_coin ..................... [[32mOK[0m in 0.13s]
+[0m16:31:20.237608 [debug] [Thread-1 (]: Began running node model.npc_benchmark.kpi_tokens_used_per_run
+[0m16:31:20.240857 [debug] [Thread-3 (]: Writing injected SQL for node "model.npc_benchmark.kpi_tokens_per_decision"
+[0m16:31:20.241660 [debug] [Thread-2 (]: SQL status: OK in 0.005 seconds
+[0m16:31:20.242290 [debug] [Thread-4 (]: Finished running node model.npc_benchmark.kpi_steps_per_coin
+[0m16:31:20.242837 [info ] [Thread-1 (]: 12 of 14 START sql table model main.kpi_tokens_used_per_run .................... [RUN]
+[0m16:31:20.244392 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_success_rate: Close
+[0m16:31:20.244831 [debug] [Thread-4 (]: Began running node model.npc_benchmark.kpi_wasted_moves
+[0m16:31:20.245230 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_rolling_avg_distance, now model.npc_benchmark.kpi_tokens_used_per_run)
+[0m16:31:20.245862 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E691160470>]}
+[0m16:31:20.246648 [debug] [Thread-3 (]: Began executing node model.npc_benchmark.kpi_tokens_per_decision
+[0m16:31:20.247031 [debug] [Thread-1 (]: Began compiling node model.npc_benchmark.kpi_tokens_used_per_run
+[0m16:31:20.246325 [info ] [Thread-4 (]: 13 of 14 START sql table model main.kpi_wasted_moves ........................... [RUN]
+[0m16:31:20.250407 [debug] [Thread-3 (]: Writing runtime sql for node "model.npc_benchmark.kpi_tokens_per_decision"
+[0m16:31:20.253172 [debug] [Thread-1 (]: Writing injected SQL for node "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m16:31:20.247661 [info ] [Thread-2 (]: 10 of 14 OK created sql table model main.kpi_success_rate ...................... [[32mOK[0m in 0.13s]
+[0m16:31:20.253762 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_steps_per_coin, now model.npc_benchmark.kpi_wasted_moves)
+[0m16:31:20.254764 [debug] [Thread-2 (]: Finished running node model.npc_benchmark.kpi_success_rate
+[0m16:31:20.255140 [debug] [Thread-4 (]: Began compiling node model.npc_benchmark.kpi_wasted_moves
+[0m16:31:20.258654 [debug] [Thread-4 (]: Writing injected SQL for node "model.npc_benchmark.kpi_wasted_moves"
+[0m16:31:20.259184 [debug] [Thread-1 (]: Began executing node model.npc_benchmark.kpi_tokens_used_per_run
+[0m16:31:20.259885 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_per_decision"
+[0m16:31:20.263283 [debug] [Thread-1 (]: Writing runtime sql for node "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m16:31:20.263775 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_per_decision: BEGIN
+[0m16:31:20.264338 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m16:31:20.265010 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.265374 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_per_decision"
+[0m16:31:20.265724 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_per_decision"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_tokens_per_decision__dbt_tmp"
+  
+    as (
+      select
+    r.config_niveau_algo,
+    r.config_nom_modele,
+    r.config_format_prompt,
+    avg(coalesce(s.tokens_input, 0) + coalesce(s.tokens_output, 0)) as tokens_per_decision
+from "benchmark"."main"."stg_steps" s
+join "benchmark"."main"."stg_runs" r using (run_id)
+group by 1, 2, 3
+    );
+  
+  
+[0m16:31:20.266278 [debug] [Thread-4 (]: Began executing node model.npc_benchmark.kpi_wasted_moves
+[0m16:31:20.269256 [debug] [Thread-4 (]: Writing runtime sql for node "model.npc_benchmark.kpi_wasted_moves"
+[0m16:31:20.269902 [debug] [Thread-3 (]: SQL status: OK in 0.004 seconds
+[0m16:31:20.271454 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_per_decision"
+[0m16:31:20.272013 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m16:31:20.272414 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_per_decision"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_tokens_per_decision'
+  
+[0m16:31:20.272928 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_tokens_used_per_run: BEGIN
+[0m16:31:20.274207 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_wasted_moves"
+[0m16:31:20.274849 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m16:31:20.275459 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.276117 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_wasted_moves: BEGIN
+[0m16:31:20.277045 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m16:31:20.279060 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_per_decision"
+[0m16:31:20.279678 [debug] [Thread-1 (]: SQL status: OK in 0.005 seconds
+[0m16:31:20.280205 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_per_decision"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_tokens_per_decision'
+  
+[0m16:31:20.280587 [debug] [Thread-4 (]: SQL status: OK in 0.004 seconds
+[0m16:31:20.280957 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m16:31:20.281491 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_wasted_moves"
+[0m16:31:20.281869 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_tokens_used_per_run: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_used_per_run"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_tokens_used_per_run__dbt_tmp"
+  
+    as (
+      with run_tokens as (
+    select run_id, sum(coalesce(tokens_input, 0) + coalesce(tokens_output, 0)) as tokens_run
+    from "benchmark"."main"."stg_steps"
+    group by run_id
+)
+
+select
+    r.config_niveau_algo,
+    r.config_nom_modele,
+    r.config_format_prompt,
+    avg(rt.tokens_run) as tokens_used_per_run
+from "benchmark"."main"."stg_runs" r
+join run_tokens rt using (run_id)
+group by 1, 2, 3
+    );
+  
+  
+[0m16:31:20.282229 [debug] [Thread-3 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.282610 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_wasted_moves: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_wasted_moves"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_wasted_moves__dbt_tmp"
+  
+    as (
+      with ordered as (
+    select
+        run_id,
+        step_index,
+        action_valid,
+        distance_cible_manhattan,
+        lag(distance_cible_manhattan) over (partition by run_id order by step_index) as prev_distance
+    from "benchmark"."main"."stg_steps"
+),
+
+flagged as (
+    select
+        run_id,
+        case
+            when not action_valid then 1
+            when prev_distance is not null
+                 and distance_cible_manhattan is not null
+                 and distance_cible_manhattan >= prev_distance
+                then 1
+            else 0
+        end as is_wasted
+    from ordered
+),
+
+run_level as (
+    select run_id, sum(is_wasted) as wasted_moves_run
+    from flagged
+    group by run_id
+)
+
+select
+    r.config_niveau_algo,
+    r.config_nom_modele,
+    r.config_format_prompt,
+    avg(rl.wasted_moves_run) as wasted_moves,
+    count(*) as nb_runs
+from "benchmark"."main"."stg_runs" r
+join run_level rl using (run_id)
+group by 1, 2, 3
+    );
+  
+  
+[0m16:31:20.286151 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_per_decision"
+[0m16:31:20.287038 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_per_decision"} */
+alter table "benchmark"."main"."kpi_tokens_per_decision" rename to "kpi_tokens_per_decision__dbt_backup"
+[0m16:31:20.287619 [debug] [Thread-1 (]: SQL status: OK in 0.005 seconds
+[0m16:31:20.288627 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m16:31:20.289025 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_tokens_used_per_run: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_used_per_run"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_tokens_used_per_run'
+  
+[0m16:31:20.289535 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.294936 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_per_decision"
+[0m16:31:20.295534 [debug] [Thread-1 (]: SQL status: OK in 0.006 seconds
+[0m16:31:20.295931 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_per_decision"} */
+alter table "benchmark"."main"."kpi_tokens_per_decision__dbt_tmp" rename to "kpi_tokens_per_decision"
+[0m16:31:20.297437 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m16:31:20.298492 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_tokens_used_per_run: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_used_per_run"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_tokens_used_per_run'
+  
+[0m16:31:20.298983 [debug] [Thread-3 (]: SQL status: OK in 0.003 seconds
+[0m16:31:20.300454 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_per_decision: COMMIT
+[0m16:31:20.300818 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_per_decision"
+[0m16:31:20.301148 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_per_decision: COMMIT
+[0m16:31:20.301578 [debug] [Thread-4 (]: SQL status: OK in 0.015 seconds
+[0m16:31:20.302041 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m16:31:20.303006 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_wasted_moves"
+[0m16:31:20.303428 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.305962 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m16:31:20.306288 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_wasted_moves: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_wasted_moves"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_wasted_moves'
+  
+[0m16:31:20.309205 [debug] [Thread-3 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_per_decision"
+[0m16:31:20.309719 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_tokens_used_per_run: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_used_per_run"} */
+alter table "benchmark"."main"."kpi_tokens_used_per_run" rename to "kpi_tokens_used_per_run__dbt_backup"
+[0m16:31:20.310312 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_per_decision: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_per_decision"} */
+
+      drop table if exists "benchmark"."main"."kpi_tokens_per_decision__dbt_backup" cascade
+    
+[0m16:31:20.310963 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.312280 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_wasted_moves"
+[0m16:31:20.312700 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.313031 [debug] [Thread-3 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.313349 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_wasted_moves: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_wasted_moves"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_wasted_moves'
+  
+[0m16:31:20.315816 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m16:31:20.316951 [debug] [Thread-3 (]: On model.npc_benchmark.kpi_tokens_per_decision: Close
+[0m16:31:20.317496 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_tokens_used_per_run: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_used_per_run"} */
+alter table "benchmark"."main"."kpi_tokens_used_per_run__dbt_tmp" rename to "kpi_tokens_used_per_run"
+[0m16:31:20.318009 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E6914E8AD0>]}
+[0m16:31:20.318379 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.319001 [info ] [Thread-3 (]: 11 of 14 OK created sql table model main.kpi_tokens_per_decision ............... [[32mOK[0m in 0.08s]
+[0m16:31:20.319516 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.320040 [debug] [Thread-3 (]: Finished running node model.npc_benchmark.kpi_tokens_per_decision
+[0m16:31:20.323337 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_wasted_moves"
+[0m16:31:20.326189 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_tokens_used_per_run: COMMIT
+[0m16:31:20.326845 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_wasted_moves: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_wasted_moves"} */
+alter table "benchmark"."main"."kpi_wasted_moves" rename to "kpi_wasted_moves__dbt_backup"
+[0m16:31:20.327219 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m16:31:20.327762 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_tokens_used_per_run: COMMIT
+[0m16:31:20.328275 [debug] [Thread-4 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.331102 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_wasted_moves"
+[0m16:31:20.331489 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_wasted_moves: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_wasted_moves"} */
+alter table "benchmark"."main"."kpi_wasted_moves__dbt_tmp" rename to "kpi_wasted_moves"
+[0m16:31:20.332008 [debug] [Thread-1 (]: SQL status: OK in 0.004 seconds
+[0m16:31:20.333976 [debug] [Thread-1 (]: Using duckdb connection "model.npc_benchmark.kpi_tokens_used_per_run"
+[0m16:31:20.334404 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_tokens_used_per_run: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_tokens_used_per_run"} */
+
+      drop table if exists "benchmark"."main"."kpi_tokens_used_per_run__dbt_backup" cascade
+    
+[0m16:31:20.334766 [debug] [Thread-4 (]: SQL status: OK in 0.003 seconds
+[0m16:31:20.336444 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_wasted_moves: COMMIT
+[0m16:31:20.336790 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_wasted_moves"
+[0m16:31:20.340599 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_wasted_moves: COMMIT
+[0m16:31:20.346892 [debug] [Thread-4 (]: SQL status: OK in 0.006 seconds
+[0m16:31:20.351377 [debug] [Thread-4 (]: Using duckdb connection "model.npc_benchmark.kpi_wasted_moves"
+[0m16:31:20.351943 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_wasted_moves: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_wasted_moves"} */
+
+      drop table if exists "benchmark"."main"."kpi_wasted_moves__dbt_backup" cascade
+    
+[0m16:31:20.352650 [debug] [Thread-1 (]: SQL status: OK in 0.017 seconds
+[0m16:31:20.354843 [debug] [Thread-1 (]: On model.npc_benchmark.kpi_tokens_used_per_run: Close
+[0m16:31:20.355269 [debug] [Thread-4 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.355930 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E6917E3590>]}
+[0m16:31:20.358892 [debug] [Thread-4 (]: On model.npc_benchmark.kpi_wasted_moves: Close
+[0m16:31:20.360672 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E691C991F0>]}
+[0m16:31:20.359996 [info ] [Thread-1 (]: 12 of 14 OK created sql table model main.kpi_tokens_used_per_run ............... [[32mOK[0m in 0.11s]
+[0m16:31:20.361891 [debug] [Thread-1 (]: Finished running node model.npc_benchmark.kpi_tokens_used_per_run
+[0m16:31:20.361221 [info ] [Thread-4 (]: 13 of 14 OK created sql table model main.kpi_wasted_moves ...................... [[32mOK[0m in 0.11s]
+[0m16:31:20.363029 [debug] [Thread-4 (]: Finished running node model.npc_benchmark.kpi_wasted_moves
+[0m16:31:20.363790 [debug] [Thread-2 (]: Began running node model.npc_benchmark.kpi_efficiency_score
+[0m16:31:20.364477 [info ] [Thread-2 (]: 14 of 14 START sql table model main.kpi_efficiency_score ....................... [RUN]
+[0m16:31:20.365073 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.npc_benchmark.kpi_success_rate, now model.npc_benchmark.kpi_efficiency_score)
+[0m16:31:20.365551 [debug] [Thread-2 (]: Began compiling node model.npc_benchmark.kpi_efficiency_score
+[0m16:31:20.369658 [debug] [Thread-2 (]: Writing injected SQL for node "model.npc_benchmark.kpi_efficiency_score"
+[0m16:31:20.371023 [debug] [Thread-2 (]: Began executing node model.npc_benchmark.kpi_efficiency_score
+[0m16:31:20.375642 [debug] [Thread-2 (]: Writing runtime sql for node "model.npc_benchmark.kpi_efficiency_score"
+[0m16:31:20.377154 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_efficiency_score"
+[0m16:31:20.377527 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_efficiency_score: BEGIN
+[0m16:31:20.377849 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m16:31:20.378455 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.378805 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_efficiency_score"
+[0m16:31:20.379152 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_efficiency_score: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_efficiency_score"} */
+
+  
+    
+    
+
+    create  table
+      "benchmark"."main"."kpi_efficiency_score__dbt_tmp"
+  
+    as (
+      select
+    sr.config_niveau_algo,
+    sr.config_nom_modele,
+    sr.config_format_prompt,
+    sr.success_rate,
+    tk.tokens_used_per_run,
+    ec.enemy_contacts,
+    round(
+        (sr.success_rate * 100)
+        / (1 + tk.tokens_used_per_run / 1000.0)
+        / (1 + ec.enemy_contacts),
+        2
+    ) as efficiency_score
+from "benchmark"."main"."kpi_success_rate" sr
+join "benchmark"."main"."kpi_tokens_used_per_run" tk
+    using (config_niveau_algo, config_nom_modele, config_format_prompt)
+join "benchmark"."main"."kpi_enemy_contacts" ec
+    using (config_niveau_algo, config_nom_modele, config_format_prompt)
+    );
+  
+  
+[0m16:31:20.381769 [debug] [Thread-2 (]: SQL status: OK in 0.002 seconds
+[0m16:31:20.382925 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_efficiency_score"
+[0m16:31:20.383306 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_efficiency_score: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_efficiency_score"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_efficiency_score'
+  
+[0m16:31:20.384213 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.385375 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_efficiency_score"
+[0m16:31:20.385725 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_efficiency_score: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_efficiency_score"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'kpi_efficiency_score'
+  
+[0m16:31:20.386567 [debug] [Thread-2 (]: SQL status: OK in 0.000 seconds
+[0m16:31:20.389110 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_efficiency_score"
+[0m16:31:20.389455 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_efficiency_score: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_efficiency_score"} */
+alter table "benchmark"."main"."kpi_efficiency_score" rename to "kpi_efficiency_score__dbt_backup"
+[0m16:31:20.390520 [debug] [Thread-2 (]: SQL status: OK in 0.000 seconds
+[0m16:31:20.395230 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_efficiency_score"
+[0m16:31:20.395839 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_efficiency_score: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_efficiency_score"} */
+alter table "benchmark"."main"."kpi_efficiency_score__dbt_tmp" rename to "kpi_efficiency_score"
+[0m16:31:20.396877 [debug] [Thread-2 (]: SQL status: OK in 0.000 seconds
+[0m16:31:20.399405 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_efficiency_score: COMMIT
+[0m16:31:20.399889 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_efficiency_score"
+[0m16:31:20.400265 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_efficiency_score: COMMIT
+[0m16:31:20.401963 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.404445 [debug] [Thread-2 (]: Using duckdb connection "model.npc_benchmark.kpi_efficiency_score"
+[0m16:31:20.404813 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_efficiency_score: /* {"app": "dbt", "dbt_version": "1.11.12", "profile_name": "npc_benchmark", "target_name": "dev", "node_id": "model.npc_benchmark.kpi_efficiency_score"} */
+
+      drop table if exists "benchmark"."main"."kpi_efficiency_score__dbt_backup" cascade
+    
+[0m16:31:20.406375 [debug] [Thread-2 (]: SQL status: OK in 0.001 seconds
+[0m16:31:20.408082 [debug] [Thread-2 (]: On model.npc_benchmark.kpi_efficiency_score: Close
+[0m16:31:20.408714 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '014ec207-0121-470d-80bf-847184509509', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E691C98530>]}
+[0m16:31:20.409328 [info ] [Thread-2 (]: 14 of 14 OK created sql table model main.kpi_efficiency_score .................. [[32mOK[0m in 0.04s]
+[0m16:31:20.410064 [debug] [Thread-2 (]: Finished running node model.npc_benchmark.kpi_efficiency_score
+[0m16:31:20.411479 [debug] [MainThread]: Using duckdb connection "master"
+[0m16:31:20.411810 [debug] [MainThread]: On master: BEGIN
+[0m16:31:20.412082 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m16:31:20.412706 [debug] [MainThread]: SQL status: OK in 0.001 seconds
+[0m16:31:20.413143 [debug] [MainThread]: On master: COMMIT
+[0m16:31:20.413606 [debug] [MainThread]: Using duckdb connection "master"
+[0m16:31:20.413987 [debug] [MainThread]: On master: COMMIT
+[0m16:31:20.414543 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m16:31:20.414867 [debug] [MainThread]: On master: Close
+[0m16:31:20.415244 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m16:31:20.415728 [debug] [MainThread]: Connection 'create_benchmark_main' was properly closed.
+[0m16:31:20.415994 [debug] [MainThread]: Connection 'list_benchmark_main' was properly closed.
+[0m16:31:20.416243 [debug] [MainThread]: Connection 'model.npc_benchmark.kpi_tokens_used_per_run' was properly closed.
+[0m16:31:20.416599 [debug] [MainThread]: Connection 'model.npc_benchmark.kpi_efficiency_score' was properly closed.
+[0m16:31:20.416847 [debug] [MainThread]: Connection 'model.npc_benchmark.kpi_tokens_per_decision' was properly closed.
+[0m16:31:20.417219 [debug] [MainThread]: Connection 'model.npc_benchmark.kpi_wasted_moves' was properly closed.
+[0m16:31:20.417792 [info ] [MainThread]: 
+[0m16:31:20.418287 [info ] [MainThread]: Finished running 12 table models, 2 view models in 0 hours 0 minutes and 0.81 seconds (0.81s).
+[0m16:31:20.422335 [debug] [MainThread]: Command end result
+[0m16:31:20.454426 [debug] [MainThread]: Wrote artifact WritableManifest to C:\Users\lukas\Documents\GitHub\etl\npc_benchmark\target\manifest.json
+[0m16:31:20.457226 [debug] [MainThread]: Wrote artifact SemanticManifest to C:\Users\lukas\Documents\GitHub\etl\npc_benchmark\target\semantic_manifest.json
+[0m16:31:20.464552 [debug] [MainThread]: Wrote artifact RunExecutionResult to C:\Users\lukas\Documents\GitHub\etl\npc_benchmark\target\run_results.json
+[0m16:31:20.465067 [info ] [MainThread]: 
+[0m16:31:20.465607 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m16:31:20.466073 [info ] [MainThread]: 
+[0m16:31:20.466543 [info ] [MainThread]: Done. PASS=14 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=14
+[0m16:31:20.467574 [debug] [MainThread]: Command `-c run` succeeded at 16:31:20.467441 after 3.32 seconds
+[0m16:31:20.467964 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E690FDEE10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E68F79DD90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E693EB7D10>]}
+[0m16:31:20.468312 [debug] [MainThread]: Flushing usage events
+[0m16:31:21.309033 [debug] [MainThread]: An error was encountered while trying to flush usage events

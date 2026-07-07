@@ -8,7 +8,7 @@ with ordered as (
         target_col,
         lag(target_row) over (partition by run_id order by step_index) as prev_target_row,
         lag(target_col) over (partition by run_id order by step_index) as prev_target_col
-    from {{ ref('stg_steps') }}
+    from "benchmark"."main"."stg_steps"
 ),
 
 flagged as (
@@ -36,6 +36,6 @@ select
     r.config_nom_modele,
     r.config_format_prompt,
     avg(rl.switches_run) as coin_priority_switches
-from {{ ref('stg_runs') }} r
+from "benchmark"."main"."stg_runs" r
 join run_level rl using (run_id)
 group by 1, 2, 3
